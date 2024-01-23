@@ -35,7 +35,7 @@ public class DateInFuturePattern extends BasePattern {
 
     public static final String ID = "aarDateInFuture";
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     protected String propertyName;
 
