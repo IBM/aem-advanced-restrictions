@@ -41,6 +41,17 @@ Please install the aem-advanced-restrictions.all package from
 or our [releases section](https://github.com/IBM/aem-advanced-restrictions/releases) on your AEM instance.
 This will install the bundle that provides the new restrictions.
 
+To embed the package in your "all" package please use the following dependency.
+
+```
+<dependency>
+    <groupId>com.ibm.aem.aem-advanced-restrictions</groupId>
+    <artifactId>aem-advanced-restrictions.all</artifactId>
+    <version>LATEST</version>
+    <type>zip</type>
+</dependency>
+```
+
 <a name="restrictions"></a>
 
 ## Restrictions
