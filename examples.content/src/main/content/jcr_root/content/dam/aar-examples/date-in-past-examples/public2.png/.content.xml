@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="bee503f7-6a68-4787-bd3f-e9396010e4ee">
+    <jcr:content
+        dam:assetState="processed"
+        jcr:lastModified="{Date}2024-01-05T09:45:16.356+01:00"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}32"
+            dam:Comments="Comment: Created with GIMP&#xa;"
+            dam:extracted="{Date}2024-01-05T09:45:16.170+01:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}1"
+            dam:Physicalheightindpi="{Long}300"
+            dam:Physicalheightininches="{Decimal}3.3333399295806885"
+            dam:Physicalwidthindpi="{Long}300"
+            dam:Physicalwidthininches="{Decimal}3.3333399295806885"
+            dam:Progressive="no"
+            dam:sha1="b109770b40bec712d370552a09acbf1323533223"
+            dam:size="{Long}25985"
+            dc:format="image/png"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1000"
+            tiff:ImageWidth="{Long}1000"
+            />
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AAR Examples"
+        sourcing="false">
+        <folderThumbnail/>
+    </jcr:content>
+    <property-match-examples/>
+    <property-starts-with-examples/>
+    <property-ends-with-examples/>
+    <property-contains-examples/>
+    <property-exists-examples/>
+    <property-not-exists-examples/>
+    <number-less-examples/>
+    <number-greater-examples/>
+    <date-in-past-examples/>
+    <date-in-future-examples/>
+    <node-exists-examples/>
+    <node-not-exists-examples/>
+    <path-contains-folder-examples/>
+</jcr:root>

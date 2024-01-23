@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:rep="internal"
+    jcr:primaryType="sling:OrderedFolder">
+    <rep:policy/>
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Path Contains Folder Examples"
+        sourcing="false">
+        <folderThumbnail/>
+    </jcr:content>
+    <public/>
+    <private-nt/>
+    <private-sling/>
+    <private-slingOrdered/>
+    <subfolder/>
+</jcr:root>

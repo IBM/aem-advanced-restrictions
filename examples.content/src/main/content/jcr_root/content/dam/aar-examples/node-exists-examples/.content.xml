@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:rep="internal"
+    jcr:primaryType="sling:OrderedFolder">
+    <rep:policy/>
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Node Exists Examples"
+        sourcing="false">
+        <folderThumbnail/>
+    </jcr:content>
+    <public1.png/>
+    <public2.png/>
+    <private1.png/>
+    <private2.png/>
+</jcr:root>

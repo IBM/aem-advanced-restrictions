@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:ACL">
+    <deny1
+        jcr:primaryType="rep:DenyACE"
+        rep:principalName="contributor"
+        rep:privileges="{Name}[jcr:read]">
+        <rep:restrictions
+            jcr:primaryType="rep:Restrictions"
+            aarDateInPast="metadata/releaseDate"/>
+    </deny1>
+    <allow1
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="aarPrivateAccess"
+        rep:privileges="{Name}[jcr:read]">
+        <rep:restrictions
+            jcr:primaryType="rep:Restrictions"
+            aarDateInPast="metadata/releaseDate"/>
+    </allow1>
+</jcr:root>
