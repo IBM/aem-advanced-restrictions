@@ -61,7 +61,7 @@ public class NodeExistsPattern extends BasePattern {
 
     protected boolean subnodeExists(Tree node) {
         List<String> parts = new ArrayList<>(Arrays.asList(nodeName.split("/")));
-        while (parts.size() > 0) {
+        while (!parts.isEmpty()) {
             String child = parts.remove(0);
             if (!node.hasChild(child)) {
                 return false;

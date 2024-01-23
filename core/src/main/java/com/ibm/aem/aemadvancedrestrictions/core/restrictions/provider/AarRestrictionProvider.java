@@ -160,7 +160,7 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
             }
         }
         catch (IllegalStateException e) {
-            LOG.error("Unable to build list of restriction patterns for " + path + ": " + e.getMessage());
+            LOG.error("Unable to build list of restriction patterns for {}: {}", path, e.getMessage());
         }
         return CompositePattern.create(patterns);
     }
