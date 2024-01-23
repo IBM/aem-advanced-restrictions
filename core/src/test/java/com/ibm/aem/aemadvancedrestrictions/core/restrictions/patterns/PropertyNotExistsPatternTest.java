@@ -38,7 +38,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PropertyNotExistsPatternTest {
+class PropertyNotExistsPatternTest {
 
     private static final String METADATA = "metadata";
     private static final String CONFIDENTIAL = "confidential";

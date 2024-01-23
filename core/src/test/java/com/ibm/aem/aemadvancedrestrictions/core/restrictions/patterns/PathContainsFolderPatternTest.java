@@ -40,7 +40,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PathContainsFolderPatternTest {
+class PathContainsFolderPatternTest {
 
     private static final String CONFIDENTIAL = "confidential";
 

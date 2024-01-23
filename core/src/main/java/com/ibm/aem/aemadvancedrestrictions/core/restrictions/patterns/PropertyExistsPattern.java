@@ -19,7 +19,6 @@
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
 import org.apache.jackrabbit.oak.api.PropertyState;
-import org.apache.jackrabbit.oak.api.Type;
 
 /**
  * Restriction pattern to check if a property exists.

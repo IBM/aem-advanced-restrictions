@@ -29,7 +29,6 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import static junit.framework.Assert.assertTrue;
-import static junitx.framework.Assert.assertEquals;
 import static junitx.framework.Assert.assertFalse;
 
 /**
@@ -39,7 +38,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PropertyStartsWithPatternTest {
+class PropertyStartsWithPatternTest {
 
     private static final String PREFIX = "metadata/";
     private static final String PROP_NAME = "cq:tags";

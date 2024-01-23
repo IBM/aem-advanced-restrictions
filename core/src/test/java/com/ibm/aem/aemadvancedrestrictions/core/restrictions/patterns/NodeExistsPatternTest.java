@@ -41,7 +41,7 @@ import static org.mockito.Mockito.when;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class NodeExistsPatternTest {
+class NodeExistsPatternTest {
 
     private static final String METADATA = "metadata";
     private static final String CONFIDENTIAL = "confidential";

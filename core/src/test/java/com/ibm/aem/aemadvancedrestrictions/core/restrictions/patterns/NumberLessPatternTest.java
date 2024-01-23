@@ -39,7 +39,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class NumberLessPatternTest {
+class NumberLessPatternTest {
 
     private static final String PREFIX = "metadata/";
     private static final String PROP_NAME = "confidential";

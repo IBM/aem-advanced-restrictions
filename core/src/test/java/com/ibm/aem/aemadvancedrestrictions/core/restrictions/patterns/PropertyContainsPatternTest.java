@@ -38,7 +38,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PropertyContainsPatternTest {
+class PropertyContainsPatternTest {
 
     private static final String PREFIX = "metadata/";
     private static final String PROP_NAME = "cq:tags";

@@ -20,7 +20,6 @@ package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,7 +39,7 @@ import static junitx.framework.Assert.assertFalse;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PropertyMatchPatternTest {
+class PropertyMatchPatternTest {
 
     private static final String PREFIX = "metadata/";
     private static final String PROP_NAME = "confidential";

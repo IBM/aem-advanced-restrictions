@@ -35,7 +35,7 @@ public class DateInPastPattern extends BasePattern {
 
     public static final String ID = "aarDateInPast";
 
-    private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     protected String propertyName;
 
@@ -51,7 +51,7 @@ public class DateInPastPattern extends BasePattern {
     @Override
     protected boolean singleValuePropertyMatches(PropertyState valueState) {
         try {
-            return DATE_FORMAT.parse(valueState.getValue(Type.DATE)).before(new Date());
+            return dateFormat.parse(valueState.getValue(Type.DATE)).before(new Date());
         }
         catch (ParseException e) {
             return false;
@@ -63,7 +63,7 @@ public class DateInPastPattern extends BasePattern {
         Iterable<String> valueIt = valueState.getValue(Type.DATES);
         for (String value: valueIt) {
             try {
-                if (DATE_FORMAT.parse(value).before(new Date())) {
+                if (dateFormat.parse(value).before(new Date())) {
                     return true;
                 }
             }

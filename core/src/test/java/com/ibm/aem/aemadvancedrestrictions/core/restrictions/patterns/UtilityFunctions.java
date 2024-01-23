@@ -23,7 +23,6 @@ import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
-import org.mockito.Mockito;
 
 import java.util.Arrays;
 
@@ -35,7 +34,7 @@ import static org.mockito.Mockito.when;
  *
  * @author Roland Gruber
  */
-public class UtilityFunctions {
+class UtilityFunctions {
 
     public static Tree createAssetWithMetadataProperty(String propertyName, Object value) {
         Tree asset = mock(Tree.class);

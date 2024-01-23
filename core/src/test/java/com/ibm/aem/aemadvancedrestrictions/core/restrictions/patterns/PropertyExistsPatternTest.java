@@ -18,21 +18,18 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import static junit.framework.Assert.assertTrue;
 import static junitx.framework.Assert.assertFalse;
-import static org.mockito.Mockito.when;
 
 /**
  * Tests PropertyExistsPattern.
@@ -41,7 +38,7 @@ import static org.mockito.Mockito.when;
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class PropertyExistsPatternTest {
+class PropertyExistsPatternTest {
 
     private static final String METADATA = "metadata";
     private static final String CONFIDENTIAL = "confidential";

@@ -18,13 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Restriction pattern to check if a property does not exist.
