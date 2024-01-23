@@ -18,11 +18,13 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.provider;
 
+import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.NodeExistsPattern;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.PropertyEndsWithPattern;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
-import org.apache.jackrabbit.oak.spi.security.authorization.restriction.CompositePattern;
+import org.apache.jackrabbit.oak.spi.security.authorization.restriction.Restriction;
+import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionDefinition;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,6 +33,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -77,6 +81,26 @@ class AarRestrictionProviderTest {
 
         RestrictionPattern pattern = provider.getPattern("/content", tree);
         assertTrue(pattern instanceof PropertyEndsWithPattern);
+    }
+
+    @Test
+    void getPatternPathSet_pathNull() {
+        assertEquals(RestrictionPattern.EMPTY, provider.getPattern(null, new HashSet<>()));
+    }
+
+    @Test
+    void getPatternPathSet_pathNotNull_restriction() {
+        HashSet<Restriction> restrictions = new HashSet<>();
+        Restriction restriction = mock(Restriction.class);
+        RestrictionDefinition definition = mock(RestrictionDefinition.class);
+        when(restriction.getDefinition()).thenReturn(definition);
+        when(definition.getName()).thenReturn(NodeExistsPattern.ID);
+        PropertyState propertyState = mock(PropertyState.class);
+        when(propertyState.getValue(Type.STRING)).thenReturn("/content");
+        when(restriction.getProperty()).thenReturn(propertyState);
+        restrictions.add(restriction);
+
+        assertTrue(provider.getPattern("/content", restrictions) instanceof NodeExistsPattern);
     }
 
 }
