@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured">
+    <tabs
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <tab1
+                granite:rel="aem-assets-metadata-form-tab"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Basic"
+                sling:resourceType="granite/ui/components/coral/foundation/container"
+                listOrder="0">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    tabid="f84cc8d6-60ab-474e-bdf8-a0b7a434f289"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <col1
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        listOrder="0">
+                        <items jcr:primaryType="nt:unstructured">
+                            <size
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Size"
+                                name="./jcr:content/metadata/size">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </size>
+                            <videoDuration
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Duration (seconds)"
+                                name="./jcr:content/metadata/videoDuration">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </videoDuration>
+                            <bitrate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Total Bit Rate (kbps)"
+                                name="./jcr:content/metadata/bitrate">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </bitrate>
+                            <videoCodec
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Video Codec"
+                                name="./jcr:content/metadata/videoCodec">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </videoCodec>
+                            <videoBitrate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Video Bit Rate (kbps)"
+                                name="./jcr:content/metadata/videoBitrate">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </videoBitrate>
+                            <frameRate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Video Frame Rate (fps)"
+                                name="./jcr:content/metadata/frameRate">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </frameRate>
+                            <audioCodec
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Audio Codec"
+                                name="./jcr:content/metadata/audioCodec">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </audioCodec>
+                            <audioBitrate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Audio Bit Rate (kbps)"
+                                name="./jcr:content/metadata/audioBitrate">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </audioBitrate>
+                            <audioSampleRate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Audio Sample Rate (hz)"
+                                name="./jcr:content/metadata/audioSampleRate">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </audioSampleRate>
+                            <audioChannels
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                disabled="{Boolean}true"
+                                fieldLabel="Number Audio Channels"
+                                name="./jcr:content/metadata/audioChannels">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="text"/>
+                            </audioChannels>
+                        </items>
+                    </col1>
+                    <col2
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        listOrder="1"/>
+                    <col3
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        listOrder="2"/>
+                </items>
+            </tab1>
+            <tab2
+                granite:rel="aem-assets-metadata-form-tab"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Advanced"
+                sling:resourceType="granite/ui/components/coral/foundation/container"
+                listOrder="1">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    tabid="7c927721-1473-492f-b949-4fa2f82a32a0"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <col1
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        listOrder="0"/>
+                    <col2
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        listOrder="1"/>
+                    <col3
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        _x0038_4209069904-DefaultValue="true"
+                        listOrder="2">
+                        <items jcr:primaryType="nt:unstructured">
+                            <header
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/sectionfield"
+                                fieldLabel="YouTube Publishing">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="section"/>
+                            </header>
+                            <category
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="YouTube Category"
+                                name="./jcr:content/metadata/dam:youtube_category">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-msm-lockable="./metadata/dam:youtube_category"
+                                    metaType="dropdown"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <film
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Film &amp; Animation"
+                                        value="Film &amp; Animation"/>
+                                    <autos
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Autos &amp; Vehicles"
+                                        value="Autos &amp; Vehicles"/>
+                                    <music
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Music"
+                                        value="Music"/>
+                                    <animals
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Pets &amp; Animals"
+                                        value="Pets &amp; Animals"/>
+                                    <sports
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Sports"
+                                        value="Sports"/>
+                                    <games
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Gaming"
+                                        value="Gaming"/>
+                                    <people
+                                        jcr:primaryType="nt:unstructured"
+                                        text="People &amp; Blogs"
+                                        value="People &amp; Blogs"/>
+                                    <comedy
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Comedy"
+                                        value="Comedy"/>
+                                    <entertainment
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Entertainment"
+                                        value="Entertainment"/>
+                                    <news
+                                        jcr:primaryType="nt:unstructured"
+                                        text="News &amp; Politics"
+                                        value="News &amp; Politics"/>
+                                    <howto
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Howto &amp; Style"
+                                        value="Howto &amp; Style"/>
+                                    <education
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Education"
+                                        value="Education"/>
+                                    <tech
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Science &amp; Technology"
+                                        value="Science &amp; Technology"/>
+                                    <nonprofit
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Nonprofits &amp; Activism"
+                                        value="Nonprofits &amp; Activism"/>
+                                    <travel
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Travel &amp; Events"
+                                        value="Travel &amp; Events"/>
+                                </items>
+                            </category>
+                            <privacy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="YouTube Privacy"
+                                name="./jcr:content/metadata/dam:youtube_privacy">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-msm-lockable="./metadata/dam:youtube_privacy"
+                                    metaType="dropdown"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <public
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Public (anyone can search for and view)"
+                                        value="public"/>
+                                    <unlisted
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Unlisted (anyone with the link can view)"
+                                        value="unlisted"/>
+                                    <private
+                                        jcr:primaryType="nt:unstructured"
+                                        text=" Private (only specific YouTube users can view)"
+                                        value="private"/>
+                                </items>
+                            </privacy>
+                            <urls
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dam/gui/components/admin/youtubeurllist"
+                                fieldLabel="YouTube URL List"
+                                name="./jcr:content/metadata/dam:youtube_urls">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-msm-lockable="./metadata/dam:youtube_urls"
+                                    metaType="youtubeurllist"/>
+                            </urls>
+                        </items>
+                    </col3>
+                </items>
+            </tab2>
+        </items>
+    </tabs>
+</jcr:root>

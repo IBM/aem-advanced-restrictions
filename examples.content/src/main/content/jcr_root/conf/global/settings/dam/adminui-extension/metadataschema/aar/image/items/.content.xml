@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured">
+    <tabs
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <tab1
+                granite:rel="aem-assets-metadata-form-tab"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Basic"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    tabid="f84cc8d6-60ab-474e-bdf8-a0b7a434f289"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <col1
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <width
+                                granite:id="Key-1380290948315"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Width"
+                                max="{Double}10000.0"
+                                min="{Double}0.0"
+                                name="./jcr:content/metadata/tiff:ImageWidth"
+                                readOnly="{Boolean}true"
+                                typeHint="Long">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="number"/>
+                            </width>
+                            <height
+                                granite:id="Key-1380291070446"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Height"
+                                max="{Double}10000.0"
+                                min="{Double}0.0"
+                                name="./jcr:content/metadata/tiff:ImageLength"
+                                readOnly="{Boolean}true"
+                                typeHint="Long">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    metaType="number"/>
+                            </height>
+                        </items>
+                    </col1>
+                    <col2
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"/>
+                    <col3
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"/>
+                </items>
+            </tab1>
+            <tab2
+                granite:rel="aem-assets-metadata-form-tab"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Advanced"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    tabid="7c927721-1473-492f-b949-4fa2f82a32a0"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <col1
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"/>
+                    <col2
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"/>
+                    <col3
+                        granite:rel="aem-assets-metadata-form-column"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"/>
+                </items>
+            </tab2>
+        </items>
+    </tabs>
+</jcr:root>

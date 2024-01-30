@@ -28,7 +28,7 @@
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1000"
             tiff:ImageWidth="{Long}1000"
-            releaseDate="{Date}1980-01-01T09:08:07.111+01:00"/>
+            releaseDate="{Date}2005-01-01T09:08:07.111+01:00"/>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>
