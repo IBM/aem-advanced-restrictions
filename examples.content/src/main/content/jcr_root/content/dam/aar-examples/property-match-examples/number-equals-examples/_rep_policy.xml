@@ -7,7 +7,7 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarNumberGreater="metadata/counter$2"/>
+            aarPropertyMatches="metadata/counter$1"/>
     </deny1>
     <allow1
         jcr:primaryType="rep:GrantACE"
@@ -15,6 +15,6 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarNumberGreater="metadata/counter$2"/>
+            aarPropertyMatches="metadata/counter$1"/>
     </allow1>
 </jcr:root>

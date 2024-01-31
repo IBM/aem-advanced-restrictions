@@ -18,6 +18,7 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.provider;
 
+import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.BasePattern;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.NodeExistsPattern;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.PropertyEndsWithPattern;
 import org.apache.jackrabbit.oak.api.PropertyState;
@@ -76,7 +77,7 @@ class AarRestrictionProviderTest {
     void getPattern_pathNotNull_property() {
         when(tree.hasProperty(PropertyEndsWithPattern.ID)).thenReturn(true);
         PropertyState propertyState = mock(PropertyState.class);
-        when(propertyState.getValue(Type.STRING)).thenReturn("prop=end");
+        when(propertyState.getValue(Type.STRING)).thenReturn("prop" + BasePattern.DELIMITER + "end");
         when(tree.getProperty(PropertyEndsWithPattern.ID)).thenReturn(propertyState);
 
         RestrictionPattern pattern = provider.getPattern("/content", tree);

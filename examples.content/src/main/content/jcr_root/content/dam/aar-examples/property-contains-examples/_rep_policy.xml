@@ -7,7 +7,7 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyContains="metadata/cq:tags=orientation"/>
+            aarPropertyContains="metadata/cq:tags$orientation"/>
     </deny1>
     <allow1
         jcr:primaryType="rep:GrantACE"
@@ -15,6 +15,6 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyContains="metadata/cq:tags=orientation"/>
+            aarPropertyContains="metadata/cq:tags$orientation"/>
     </allow1>
 </jcr:root>

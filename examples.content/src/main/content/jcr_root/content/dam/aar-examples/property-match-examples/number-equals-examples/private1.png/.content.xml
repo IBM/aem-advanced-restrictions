@@ -28,7 +28,7 @@
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1000"
             tiff:ImageWidth="{Long}1000"
-            confidential="{Long}1"/>
+            counter="{Long}1"/>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>
