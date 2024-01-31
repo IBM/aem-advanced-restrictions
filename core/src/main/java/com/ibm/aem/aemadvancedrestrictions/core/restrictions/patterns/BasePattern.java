@@ -37,7 +37,10 @@ import java.util.List;
  */
 public abstract class BasePattern implements RestrictionPattern {
 
-    protected static final String DELIMITER = "=";
+    /**
+     * Delimiter when the restriction value contains multiple parts (e.g. property name + value).
+     */
+    public static final String DELIMITER = "$";
 
     @Override
     public boolean matches(Tree tree, PropertyState propertyState) {

@@ -87,13 +87,13 @@ This restriction checks if a given property value matches the restriction value.
 The comparison is done by reading the String value. Non-string properties are compared using their String representation.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarPropertyMatches** NAME=VALUE
+Syntax: **aarPropertyMatches** NAME$VALUE
 
 Examples:
 
 ```
-aarPropertyMatches confidential=true
-aarPropertyMatches metadata/confidential=1
+aarPropertyMatches confidential$true
+aarPropertyMatches metadata/confidential$1
 ```
 
 <a name="aarPropertyStartsWith"></a>
@@ -109,18 +109,18 @@ These restrictions are e.g. useful for matching parts of tag values.
 
 Syntax:
 
-**aarPropertyStartsWith** NAME=VALUE
+**aarPropertyStartsWith** NAME$VALUE
 
-**aarPropertyEndsWith** NAME=VALUE
+**aarPropertyEndsWith** NAME$VALUE
 
-**aarPropertyContains** NAME=VALUE
+**aarPropertyContains** NAME$VALUE
 
 Examples:
 
 ```
-aarPropertyStartsWith cq:tags=properties:Confidential
-aarPropertyEndsWith metadata/cq:tags=properties:Confidential
-aarPropertyContains metadata/subnode/tags=properties:Confidential
+aarPropertyStartsWith cq:tags$properties:Confidential
+aarPropertyEndsWith metadata/cq:tags$properties:Confidential
+aarPropertyContains metadata/subnode/tags$properties:Confidential
 ```
 
 <a name="aarPropertyExists"></a>
@@ -153,12 +153,12 @@ These restrictions should only be used for numeric values of type "Long".
 Checks if the property value is less than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberLess** NAME=VALUE
+Syntax: **aarNumberLess** NAME$VALUE
 
 Example:
 ```
-aarNumberLess counter=5
-aarNumberLess metadata/counter=5
+aarNumberLess counter$5
+aarNumberLess metadata/counter$5
 ```
 
 This matches if the property is less than 5.
@@ -168,12 +168,12 @@ This matches if the property is less than 5.
 Checks if the property value is greater than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberGreater** NAME=VALUE
+Syntax: **aarNumberGreater** NAME$VALUE
 
 Example:
 ```
-aarNumberGreater counter=5
-aarNumberGreater metadata/counter=5
+aarNumberGreater counter$5
+aarNumberGreater metadata/counter$5
 ```
 
 This matches if the property is greater than 5.

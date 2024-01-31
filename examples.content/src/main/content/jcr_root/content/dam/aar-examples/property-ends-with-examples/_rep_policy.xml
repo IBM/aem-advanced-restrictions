@@ -7,7 +7,7 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyEndsWith="metadata/cq:tags=square"/>
+            aarPropertyEndsWith="metadata/cq:tags$square"/>
     </deny1>
     <allow1
         jcr:primaryType="rep:GrantACE"
@@ -15,6 +15,6 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyEndsWith="metadata/cq:tags=square"/>
+            aarPropertyEndsWith="metadata/cq:tags$square"/>
     </allow1>
 </jcr:root>

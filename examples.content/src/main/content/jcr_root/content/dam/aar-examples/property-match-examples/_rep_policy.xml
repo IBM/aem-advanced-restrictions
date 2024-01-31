@@ -7,7 +7,7 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyMatches="metadata/confidential=true"/>
+            aarPropertyMatches="metadata/confidential$true"/>
     </deny1>
     <allow1
         jcr:primaryType="rep:GrantACE"
@@ -15,6 +15,6 @@
         rep:privileges="{Name}[jcr:read]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
-            aarPropertyMatches="metadata/confidential=true"/>
+            aarPropertyMatches="metadata/confidential$true"/>
     </allow1>
 </jcr:root>
