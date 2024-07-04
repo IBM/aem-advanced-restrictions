@@ -93,7 +93,7 @@ Examples:
 
 ```
 aarPropertyMatches confidential$true
-aarPropertyMatches metadata/confidential$1
+aarPropertyMatches metadata/confidential$true
 ```
 
 <a name="aarPropertyStartsWith"></a>
@@ -184,6 +184,24 @@ This matches if the property is greater than 5.
 
 These restrictions should only be used for date values.
 
+#### Future
+
+Checks if the property value is in the future (compared to now).
+If the property is not present then the ACL will not apply.
+
+Syntax: **aarDateInFuture** NAME
+
+Example:
+
+Use "releaseDate" to store the date when content gets public.
+Then add a deny rule for read access for normal editors.
+Privileged editors can have an additional allow rule to gain access (this rule must be below the deny rule).
+
+```
+aarDateInFuture releaseDate
+aarDateInFuture metadata/releaseDate
+```
+
 #### Past
 
 Checks if the property value is in the past (compared to now).
@@ -195,19 +213,6 @@ Example:
 ```
 aarDateInPast releaseDate
 aarDateInPast metadata/releaseDate
-```
-
-#### Future
-
-Checks if the property value is in the future (compared to now).
-If the property is not present then the ACL will not apply.
-
-Syntax: **aarDateInFuture** NAME
-
-Example:
-```
-aarDateInFuture releaseDate
-aarDateInFuture metadata/releaseDate
 ```
 
 <a name="aarNodeExists"></a>
