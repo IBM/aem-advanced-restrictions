@@ -95,6 +95,8 @@ Examples:
 aarPropertyMatches confidential$true
 aarPropertyMatches metadata/confidential$true
 ```
+![Property Equality Matching](docs/images/examplePropertyMatch.png)
+
 
 <a name="aarPropertyStartsWith"></a>
 
@@ -123,6 +125,8 @@ aarPropertyEndsWith metadata/cq:tags$properties:Confidential
 aarPropertyContains metadata/subnode/tags$properties:Confidential
 ```
 
+![Property Substring Matching](docs/images/examplePropertyContains.png)
+
 <a name="aarPropertyExists"></a>
 
 ### Property Existence
@@ -142,11 +146,15 @@ aarPropertyExists confidential
 aarPropertyNotExists metadata/approved
 ```
 
+![Property Existence](docs/images/examplePropertyExists.png)
+
 <a name="aarNumber"></a>
 
 ### Number Comparison
 
 These restrictions should only be used for numeric values of type "Long".
+
+![Number Comparison](docs/images/examplePropertyNumber.png)
 
 #### Less Than
 
@@ -183,6 +191,8 @@ This matches if the property is greater than 5.
 ### Date Comparison
 
 These restrictions should only be used for date values.
+
+![Date Comparison](docs/images/examplePropertyDate.png)
 
 #### Future
 
@@ -238,11 +248,14 @@ aarNodeExists approvers
 aarNodeNotExists metadata/approvers
 ```
 
+![Node Existence](docs/images/exampleNodeExists.png)
+
 <a name="aarPathContainsFolder"></a>
 
 ### Folder Naming
 
 This restriction checks if the node is located within a folder with a given name. The folder itself also matches.
+In contrast to "rep:subtrees" this restriction only matches real folders and not property names in path.
 
 Folders are detected by checking jcr:primaryType against nt:folder, sling:Folder and sling:orderedFolder. Others are ignored to make sure there are no same-naming conflicts.
 
@@ -260,6 +273,8 @@ This will match e.g.:
 
 but not
 * /content/dam/site/public/myAsset/jcr:content/confidential
+
+![Folder Naming](docs/images/exampleFolderName.png)
 
 <a name="examples"></a>
 
