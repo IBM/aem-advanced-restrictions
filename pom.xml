@@ -21,7 +21,7 @@
   <groupId>com.ibm.aem.aem-advanced-restrictions</groupId>
   <artifactId>aem-advanced-restrictions</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>AEM Advanced Restrictions</name>
   <description>AEM Advanced Restrictions</description>
   <url>https://github.com/IBM/aem-advanced-restrictions</url>
