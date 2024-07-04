@@ -1906,6 +1906,20 @@
                                         typeHint="Date"
                                         visibilityCascading="default"/>
                                 </_x0031_706616616107>
+                                <_x0031_706616674325
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dam/gui/components/admin/schemafield"
+                                    defaultValue=""
+                                    fieldLabel="Text property"
+                                    name="./jcr:content/metadata/aarText"
+                                    resourceType="granite/ui/components/coral/foundation/form/textfield">
+                                    <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        cq-msm-lockable="./metadata/aarText"
+                                        metaType="text"
+                                        requiredCascading="default"
+                                        visibilityCascading="default"/>
+                                </_x0031_706616674325>
                                 <_x0031_706616674321
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"

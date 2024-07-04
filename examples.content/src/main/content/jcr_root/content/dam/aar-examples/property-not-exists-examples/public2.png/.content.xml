@@ -28,7 +28,7 @@
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1000"
             tiff:ImageWidth="{Long}1000"
-            approved="1"/>
+            aarText="Approved"/>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>
