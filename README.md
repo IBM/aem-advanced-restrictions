@@ -210,6 +210,11 @@ If the property is not present then the ACL will not apply.
 Syntax: **aarDateInPast** NAME
 
 Example:
+
+Use "releaseDate" to store the date when content gets outdated and should be hidden.
+Then add a deny rule for read access for normal editors.
+Privileged editors can have an additional allow rule to gain access (this rule must be below the deny rule).
+
 ```
 aarDateInPast releaseDate
 aarDateInPast metadata/releaseDate
