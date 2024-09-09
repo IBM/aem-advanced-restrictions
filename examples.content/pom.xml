@@ -62,13 +62,6 @@
                             </options>
                         </jackrabbit-filter>
                     </validatorsSettings>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.adobe.aem.guides</groupId>
-                            <artifactId>aem-guides-wknd-shared.ui.content</artifactId>
-                            <version>2.1.2</version>
-                        </dependency>
-                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -83,15 +76,4 @@
         </plugins>
     </build>
 
-    <!-- ====================================================================== -->
-    <!-- D E P E N D E N C I E S                                                -->
-    <!-- ====================================================================== -->
-    <dependencies>
-        <dependency>
-            <groupId>com.adobe.aem.guides</groupId>
-            <artifactId>aem-guides-wknd-shared.ui.content</artifactId>
-            <version>2.1.2</version>
-            <type>zip</type>
-        </dependency>
-    </dependencies>
 </project>
