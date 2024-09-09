@@ -1,4 +1,7 @@
 # Release History
+* 1.0.2
+  * Examples: removed WKND dependency
+
 * 1.0.1
   * Example updates
 
