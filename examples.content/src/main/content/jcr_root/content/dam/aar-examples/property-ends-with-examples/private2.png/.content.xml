@@ -1,34 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:ns1="http://www.gimp.org/xmp/" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:mixinTypes="[mix:referenceable]"
     jcr:primaryType="dam:Asset"
-    jcr:uuid="b2586faa-d06e-4e6a-b655-785c05624516">
+    jcr:uuid="88cfdfee-b3b8-4876-a211-6991b1c75968">
     <jcr:content
         dam:assetState="processed"
-        jcr:lastModified="{Date}2024-01-05T09:45:16.419+01:00"
-        jcr:lastModifiedBy="workflow-process-service"
+        jcr:lastModified="{Date}2024-09-18T11:18:35.127+02:00"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
-            dam:Bitsperpixel="{Long}32"
-            dam:Comments="Comment: Created with GIMP&#xa;"
-            dam:extracted="{Date}2024-01-05T09:45:16.200+01:00"
+            dam:Bitsperpixel="{Long}24"
+            dam:Comments="Raw profile type exif: &#xa;exif&#xa;     214&#xa;45786966000049492a00080000000a000001040001000000660200000101040001000000&#xa;980300000201030003000000860000001201030001000000010000001a01050001000000&#xa;8c0000001b0105000100000094000000280103000100000003000000310102000d000000&#xa;9c0000003201020014000000aa0000006987040001000000be0000000000000008000800&#xa;08003702000014000000370200001400000047494d5020322e31302e3336000032303234&#xa;3a30393a31372031353a32323a313400010001a00300010000000100000000000000&#xa;&#xa;XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?>&#xa;&lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;XMP Core 4.4.0-Exiv2&quot;>&#xa; &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;>&#xa;  &lt;rdf:Description rdf:about=&quot;&quot;&#xa;    xmlns:xmpMM=&quot;http://ns.adobe.com/xap/1.0/mm/&quot;&#xa;    xmlns:stEvt=&quot;http://ns.adobe.com/xap/1.0/sType/ResourceEvent#&quot;&#xa;    xmlns:GIMP=&quot;http://www.gimp.org/xmp/&quot;&#xa;    xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&#xa;    xmlns:tiff=&quot;http://ns.adobe.com/tiff/1.0/&quot;&#xa;    xmlns:xmp=&quot;http://ns.adobe.com/xap/1.0/&quot;&#xa;   xmpMM:DocumentID=&quot;gimp:docid:gimp:e22bca80-e483-4c4a-a81f-af864919a396&quot;&#xa;   xmpMM:InstanceID=&quot;xmp.iid:ecf461e0-9269-4727-bb13-2b3c2b5b0d95&quot;&#xa;   xmpMM:OriginalDocumentID=&quot;xmp.did:19b97988-03a5-4321-94aa-09cf0991f68c&quot;&#xa;   GIMP:API=&quot;2.0&quot;&#xa;   GIMP:Platform=&quot;Mac OS&quot;&#xa;   GIMP:TimeStamp=&quot;1726579334772262&quot;&#xa;   GIMP:Version=&quot;2.10.36&quot;&#xa;   dc:Format=&quot;image/png&quot;&#xa;   tiff:Orientation=&quot;1&quot;&#xa;   xmp:CreatorTool=&quot;GIMP 2.10&quot;&#xa;   xmp:MetadataDate=&quot;2024:09:17T15:22:14+02:00&quot;&#xa;   xmp:ModifyDate=&quot;2024:09:17T15:22:14+02:00&quot;>&#xa;   &lt;xmpMM:History>&#xa;    &lt;rdf:Seq>&#xa;     &lt;rdf:li&#xa;      stEvt:action=&quot;saved&quot;&#xa;      stEvt:changed=&quot;/&quot;&#xa;      stEvt:instanceID=&quot;xmp.iid:81ed1cf8-1fa7-44e5-b0d4-34d0d334de3a&quot;&#xa;      stEvt:softwareAgent=&quot;Gimp 2.10 (Mac OS)&quot;&#xa;      stEvt:when=&quot;2024-09-17T15:14:51+02:00&quot;/>&#xa;     &lt;rdf:li&#xa;      stEvt:action=&quot;saved&quot;&#xa;      stEvt:changed=&quot;/&quot;&#xa;      stEvt:instanceID=&quot;xmp.iid:ec8484f0-aa80-4cf5-9b6a-cc81edbbc10e&quot;&#xa;      stEvt:softwareAgent=&quot;Gimp 2.10 (Mac OS)&quot;&#xa;      stEvt:when=&quot;2024-09-17T15:20:03+02:00&quot;/>&#xa;     &lt;rdf:li&#xa;      stEvt:action=&quot;saved&quot;&#xa;      stEvt:changed=&quot;/&quot;&#xa;      stEvt:instanceID=&quot;xmp.iid:7ea5e1ff-f441-4989-92e6-f173fa56cd90&quot;&#xa;      stEvt:softwareAgent=&quot;Gimp 2.10 (Mac OS)&quot;&#xa;      stEvt:when=&quot;2024-09-17T15:22:14+02:00&quot;/>&#xa;    &lt;/rdf:Seq>&#xa;   &lt;/xmpMM:History>&#xa;  &lt;/rdf:Description>&#xa; &lt;/rdf:RDF>&#xa;&lt;/x:xmpmeta>&#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                                                                                                    &#xa;                           &#xa;&lt;?xpacket end=&quot;w&quot;?>&#xa;"
+            dam:extracted="{Date}2024-09-18T11:18:34.915+02:00"
             dam:Fileformat="PNG"
             dam:MIMEtype="image/png"
             dam:Numberofimages="{Long}1"
-            dam:Numberoftextualcomments="{Long}1"
-            dam:Physicalheightindpi="{Long}300"
-            dam:Physicalheightininches="{Decimal}3.3333399295806885"
-            dam:Physicalwidthindpi="{Long}300"
-            dam:Physicalwidthininches="{Decimal}3.3333399295806885"
+            dam:Numberoftextualcomments="{Long}2"
+            dam:Physicalheightindpi="{Long}72"
+            dam:Physicalheightininches="{Decimal}12.7761812210083"
+            dam:Physicalwidthindpi="{Long}72"
+            dam:Physicalwidthininches="{Decimal}8.526711463928223"
             dam:Progressive="no"
-            dam:sha1="c2373935096c6973f42b1a8dd6c313c0e538c6d2"
-            dam:size="{Long}29392"
+            dam:sha1="9d9ab9034b992767b3c66a3589155aa09dcdf360"
+            dam:size="{Long}951927"
+            dc:Format="image/png"
             dc:format="image/png"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
-            tiff:ImageLength="{Long}1000"
-            tiff:ImageWidth="{Long}1000"
-            cq:tags="[properties:orientation/portrait,properties:orientation/square]"/>
+            ns1:API="{Decimal}2.0"
+            ns1:Platform="Mac OS"
+            ns1:TimeStamp="{Long}1726579334772262"
+            ns1:Version="2.10.36"
+            tiff:ImageLength="{Long}920"
+            tiff:ImageWidth="{Long}614"
+            tiff:Orientation="{Long}1"
+            xmp:CreatorTool="GIMP 2.10"
+            xmpMM:DocumentID="gimp:docid:gimp:e22bca80-e483-4c4a-a81f-af864919a396"
+            xmpMM:InstanceID="xmp.iid:ecf461e0-9269-4727-bb13-2b3c2b5b0d95"
+            xmpMM:OriginalDocumentID="xmp.did:19b97988-03a5-4321-94aa-09cf0991f68c"
+            cq:tags="[properties:orientation/portrait,properties:orientation/square]">
+            <xmpMM:History
+                jcr:primaryType="nt:unstructured"
+                xmpArraySize="{Long}3"
+                xmpArrayType="rdf:Seq"
+                xmpNodeType="xmpArray">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="xmp.iid:81ed1cf8-1fa7-44e5-b0d4-34d0d334de3a"
+                    stEvt:softwareAgent="Gimp 2.10 (Mac OS)"
+                    stEvt:when="{Date}2024-09-17T15:14:51.000+02:00"
+                    xmpNodeType="xmpStruct"/>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="xmp.iid:ec8484f0-aa80-4cf5-9b6a-cc81edbbc10e"
+                    stEvt:softwareAgent="Gimp 2.10 (Mac OS)"
+                    stEvt:when="{Date}2024-09-17T15:20:03.000+02:00"
+                    xmpNodeType="xmpStruct"/>
+                <_x0033_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="xmp.iid:7ea5e1ff-f441-4989-92e6-f173fa56cd90"
+                    stEvt:softwareAgent="Gimp 2.10 (Mac OS)"
+                    stEvt:when="{Date}2024-09-17T15:22:14.000+02:00"
+                    xmpNodeType="xmpStruct"/>
+            </xmpMM:History>
+        </metadata>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>
