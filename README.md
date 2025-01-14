@@ -9,6 +9,10 @@ There are various use-cases for such property-based ACLs, e.g.:
 * Prevent publishing of incomplete assets
 * Prevent access to assets before or after a given date
 
+The tool was presented at the [adaptTo() conference in Berlin](https://adapt.to/2024/schedule/unveiling-the-power-of-aems-permission-system). You can get the slides there and also see the video here:
+
+[![AECU @ adaptTo() 2018](https://img.youtube.com/vi/OQgN2Nb3p9Q/0.jpg)](https://www.youtube.com/watch?v=OQgN2Nb3p9Q "AECU @ adaptTo() 2018")
+
 Table of contents
 1. [Requirements](#requirements)
 1. [Installation](#installation)
