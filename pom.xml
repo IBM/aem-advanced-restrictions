@@ -124,8 +124,8 @@
                   <version>[3.3.9,)</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
-                  <message>Maven must be executed with a Java 8 JRE or higher.</message>
-                  <version>1.8.0</version>
+                  <message>Maven must be executed with a Java 11 JRE or higher.</message>
+                  <version>11</version>
                 </requireJavaVersion>
               </rules>
             </configuration>
@@ -207,6 +207,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
+          <version>5.1.9</version>
           <extensions>true</extensions>
           <executions>
             <execution>
