@@ -1,4 +1,7 @@
 # Release History
+* 2.0.0
+  * Allow property checks on Sling (ordered) folders
+
 * 1.0.2
   * Examples: removed WKND dependency
 

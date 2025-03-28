@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="sling:Folder"
+    jcr:title="AAR">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+    <items jcr:primaryType="nt:unstructured">
+        <tabs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/tabs"
+            size="L">
+            <items jcr:primaryType="nt:unstructured">
+                <tab1
+                    granite:rel="aem-assets-metadata-form-tab"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="AAR"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    listOrder="0">
+                    <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        tabid="6936e090-d16e-4e8a-a2aa-a21e3ef0ee24"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <col1
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="0"
+                            oice-options="on">
+                            <items jcr:primaryType="nt:unstructured">
+                                <_x0031_743147534656
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dam/gui/components/admin/schemafield"
+                                    emptyText="Select Option"
+                                    fieldLabel="Confidential"
+                                    name="./jcr:content/metadata/confidential"
+                                    resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
+                                    <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        choicesCascading="default"
+                                        cq-msm-lockable="./metadata/confidential"
+                                        metaType="dropdown"
+                                        requiredCascading="default"
+                                        visibilityCascading="default"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <_x0031_743147572282
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Yes"
+                                            value="yes"/>
+                                        <_x0031_743147579755
+                                            jcr:primaryType="nt:unstructured"
+                                            text="No"
+                                            value="no"/>
+                                    </items>
+                                    <cascadeitems
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/cascadeitems"/>
+                                </_x0031_743147534656>
+                            </items>
+                        </col1>
+                        <col2
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="1"/>
+                        <col3
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="2"/>
+                    </items>
+                </tab1>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>
