@@ -98,10 +98,8 @@ The comparison is done by reading the String value. Non-string properties are co
 If the property is not present then the ACL will not apply.
 
 Syntax:
-
-**aarPropertyMatches** NAME$VALUE
-
-**aarPropertyMatchesHierarchical** NAME$VALUE
+* **aarPropertyMatches** NAME$VALUE
+* **aarPropertyMatchesHierarchical** NAME$VALUE
 
 Examples for asset/page property check:
 
@@ -219,9 +217,11 @@ These restrictions should only be used for date values.
 Checks if the property value is in the future (compared to now).
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarDateInFuture** NAME
+Syntax:
+* **aarDateInFuture** NAME
+* **aarDateInFutureHierarchical** NAME
 
-Example:
+Examples for asset/page property check:
 
 Use "releaseDate" to store the date when content gets public.
 Then add a deny rule for read access for normal editors.
@@ -232,14 +232,23 @@ aarDateInFuture releaseDate
 aarDateInFuture metadata/releaseDate
 ```
 
+Examples for directory/page incl. subpages property check:
+
+```
+aarDateInFutureHierarchical releaseDate
+aarDateInFutureHierarchical metadata/releaseDate
+```
+
 #### Past
 
 Checks if the property value is in the past (compared to now).
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarDateInPast** NAME
+Syntax:
+* **aarDateInPast** NAME
+* **aarDateInPastHierarchical** NAME
 
-Example:
+Examples for asset/page property check:
 
 Use "releaseDate" to store the date when content gets outdated and should be hidden.
 Then add a deny rule for read access for normal editors.
@@ -248,6 +257,13 @@ Privileged editors can have an additional allow rule to gain access (this rule m
 ```
 aarDateInPast releaseDate
 aarDateInPast metadata/releaseDate
+```
+
+Examples for directory/page incl. subpages property check:
+
+```
+aarDateInPastHierarchical releaseDate
+aarDateInPastHierarchical metadata/releaseDate
 ```
 
 <a name="aarNodeExists"></a>

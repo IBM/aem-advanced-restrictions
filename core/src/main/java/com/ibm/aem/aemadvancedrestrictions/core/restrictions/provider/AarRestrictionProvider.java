@@ -58,6 +58,8 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(NodeNotExistsPattern.ID, new RestrictionDefinitionImpl(NodeNotExistsPattern.ID, Type.STRING, false));
         definitions.put(PathContainsFolderPattern.ID, new RestrictionDefinitionImpl(PathContainsFolderPattern.ID, Type.STRING, false));
         definitions.put(PropertyMatchHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyMatchHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(DateInPastHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInPastHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(DateInFutureHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInFutureHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -108,6 +110,12 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(PropertyMatchHierarchicalPattern.ID)) {
             patterns.add(new PropertyMatchHierarchicalPattern(tree.getProperty(PropertyMatchHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(DateInPastHierarchicalPattern.ID)) {
+            patterns.add(new DateInPastHierarchicalPattern(tree.getProperty(DateInPastHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(DateInFutureHierarchicalPattern.ID)) {
+            patterns.add(new DateInFutureHierarchicalPattern(tree.getProperty(DateInFutureHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -162,6 +170,12 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case PropertyMatchHierarchicalPattern.ID:
                         patterns.add(new PropertyMatchHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case DateInPastHierarchicalPattern.ID:
+                        patterns.add(new DateInPastHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case DateInFutureHierarchicalPattern.ID:
+                        patterns.add(new DateInFutureHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

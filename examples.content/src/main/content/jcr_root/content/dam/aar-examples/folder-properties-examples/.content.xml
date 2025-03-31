@@ -7,4 +7,6 @@
         sourcing="false">
     </jcr:content>
     <property-match/>
+    <date-in-past/>
+    <date-in-future/>
 </jcr:root>
