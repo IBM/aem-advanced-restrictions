@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -57,31 +57,31 @@ class DateInFuturePatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, PROP_VALUE_AFTER);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_AFTER);
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, PROP_VALUE_BEFORE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_BEFORE);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_BEFORE});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_BEFORE});
         assertFalse(pattern.matches(asset, null));
     }
 
