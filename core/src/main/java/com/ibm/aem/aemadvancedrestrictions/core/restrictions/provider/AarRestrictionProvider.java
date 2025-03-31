@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -57,6 +57,7 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(NodeExistsPattern.ID, new RestrictionDefinitionImpl(NodeExistsPattern.ID, Type.STRING, false));
         definitions.put(NodeNotExistsPattern.ID, new RestrictionDefinitionImpl(NodeNotExistsPattern.ID, Type.STRING, false));
         definitions.put(PathContainsFolderPattern.ID, new RestrictionDefinitionImpl(PathContainsFolderPattern.ID, Type.STRING, false));
+        definitions.put(PropertyMatchHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyMatchHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -104,6 +105,9 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(PathContainsFolderPattern.ID)) {
             patterns.add(new PathContainsFolderPattern(tree.getProperty(PathContainsFolderPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyMatchHierarchicalPattern.ID)) {
+            patterns.add(new PropertyMatchHierarchicalPattern(tree.getProperty(PropertyMatchHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -155,6 +159,9 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case PathContainsFolderPattern.ID:
                         patterns.add(new PathContainsFolderPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyMatchHierarchicalPattern.ID:
+                        patterns.add(new PropertyMatchHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -50,13 +50,22 @@ public abstract class BasePattern implements RestrictionPattern {
             return false;
         }
         PropertyState valueState = readPropertyFromBase(baseNode, getPropertyName());
-        if (valueState == null) {
-            return false;
+        if (valueState != null) {
+            if (!valueState.isArray()) {
+                if (singleValuePropertyMatches(valueState)) {
+                    return true;
+                }
+            }
+            else {
+                if (multiValuePropertyMatches(valueState)) {
+                    return true;
+                }
+            }
         }
-        if (!valueState.isArray()) {
-            return singleValuePropertyMatches(valueState);
+        if (checkHierarchy()) {
+            return matches(tree.getParent(), propertyState);
         }
-        return multiValuePropertyMatches(valueState);
+        return false;
     }
 
     /**
@@ -153,6 +162,15 @@ public abstract class BasePattern implements RestrictionPattern {
             node = node.getChild(child);
         }
         return node.getProperty(parts.get(0));
+    }
+
+    /**
+     * Checks also parent nodes and not only base.
+     *
+     * @return check hierarchy
+     */
+    protected boolean checkHierarchy() {
+        return false;
     }
 
     @Override

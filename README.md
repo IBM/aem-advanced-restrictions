@@ -63,6 +63,12 @@ To embed the package in your "all" package please use the following dependency.
 All restrictions are evaluated relative to the jcr:content node. Assets (dam:Asset) and pages (cq:Page) are supported. Nodes with other jcr:primaryType are not supported and ignored.
 See below for all supported restrictions.
 
+There exist hierarchical and non-hierarchical versions of the property restrictions.
+This is caused by a speciality of OAK that allows access to child nodes even
+if the parent node is forbidden. For property checks on assets and leaf pages you
+can use the non-hierarchical versions. If the checked properties are on folders or
+parent pages then use the hierarchical version.
+
 Properties on subnodes of jcr:content:
 
 The property names can include slashes to specify subnodes. This is very useful for assets where most
@@ -91,9 +97,13 @@ This restriction checks if a given property value matches the restriction value.
 The comparison is done by reading the String value. Non-string properties are compared using their String representation.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarPropertyMatches** NAME$VALUE
+Syntax:
 
-Examples:
+**aarPropertyMatches** NAME$VALUE
+
+**aarPropertyMatchesHierarchical** NAME$VALUE
+
+Examples for asset/page property check:
 
 ```
 aarPropertyMatches confidential$true
@@ -101,6 +111,12 @@ aarPropertyMatches metadata/confidential$true
 ```
 ![Property Equality Matching](docs/images/examplePropertyMatch.png)
 
+Examples for directory/page incl. subpages property check:
+
+```
+aarPropertyMatchesHierarchical confidential$true
+aarPropertyMatchesHierarchical metadata/confidential$true
+```
 
 <a name="aarPropertyStartsWith"></a>
 
