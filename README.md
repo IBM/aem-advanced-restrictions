@@ -179,12 +179,21 @@ These restrictions should only be used for numeric values of type "Long".
 Checks if the property value is less than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberLess** NAME$VALUE
+Syntax:
 
-Example:
+* **aarNumberLess** NAME$VALUE
+* **aarNumberLessHierarchical** NAME$VALUE
+
+Examples for asset/page property check:
 ```
 aarNumberLess counter$5
 aarNumberLess metadata/counter$5
+```
+Examples for directory/page incl. subpages property check:
+
+```
+aarNumberLessHierarchical counter$5
+aarNumberLessHierarchical metadata/counter$5
 ```
 
 This matches if the property is less than 5.
@@ -194,12 +203,20 @@ This matches if the property is less than 5.
 Checks if the property value is greater than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberGreater** NAME$VALUE
+Syntax:
+* **aarNumberGreater** NAME$VALUE
+* **aarNumberGreaterHierarchical** NAME$VALUE
 
-Example:
+Examples for asset/page property check:
 ```
 aarNumberGreater counter$5
 aarNumberGreater metadata/counter$5
+```
+Examples for directory/page incl. subpages property check:
+
+```
+aarNumberGreaterHierarchical counter$5
+aarNumberGreaterHierarchical metadata/counter$5
 ```
 
 This matches if the property is greater than 5.

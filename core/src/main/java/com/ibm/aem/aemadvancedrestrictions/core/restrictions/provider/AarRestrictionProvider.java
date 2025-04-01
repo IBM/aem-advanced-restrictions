@@ -60,6 +60,8 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(PropertyMatchHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyMatchHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(DateInPastHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInPastHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(DateInFutureHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInFutureHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(NumberLessHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberLessHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(NumberGreaterHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberGreaterHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -116,6 +118,12 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(DateInFutureHierarchicalPattern.ID)) {
             patterns.add(new DateInFutureHierarchicalPattern(tree.getProperty(DateInFutureHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(NumberLessHierarchicalPattern.ID)) {
+            patterns.add(new NumberLessHierarchicalPattern(tree.getProperty(NumberLessHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(NumberGreaterHierarchicalPattern.ID)) {
+            patterns.add(new NumberGreaterHierarchicalPattern(tree.getProperty(NumberGreaterHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -176,6 +184,12 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case DateInFutureHierarchicalPattern.ID:
                         patterns.add(new DateInFutureHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case NumberLessHierarchicalPattern.ID:
+                        patterns.add(new NumberLessHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case NumberGreaterHierarchicalPattern.ID:
+                        patterns.add(new NumberGreaterHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

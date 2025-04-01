@@ -70,6 +70,20 @@
                                         typeHint="Date"
                                         visibilityCascading="default"/>
                                 </_x0031_706616616107>
+                                <_x0031_706616674321
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dam/gui/components/admin/schemafield"
+                                    defaultValue=" "
+                                    fieldLabel="Counter"
+                                    name="./jcr:content/metadata/counter"
+                                    resourceType="granite/ui/components/coral/foundation/form/numberfield">
+                                    <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        cq-msm-lockable="./metadata/counter"
+                                        metaType="number"
+                                        requiredCascading="default"
+                                        visibilityCascading="default"/>
+                                </_x0031_706616674321>
                             </items>
                         </col1>
                         <col2
