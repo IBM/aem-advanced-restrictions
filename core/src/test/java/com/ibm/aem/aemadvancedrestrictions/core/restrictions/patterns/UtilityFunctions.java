@@ -85,7 +85,7 @@ class UtilityFunctions {
         return asset;
     }
 
-    public static Tree createAssetWithMetadataPropertyAndParentFolders(String propertyName, Object value) {
+    public static Tree createAssetWithParentFoldersAndMetadataProperty(String propertyName, Object value) {
         Tree asset = createAssetWithMetadataProperty("id", "asset");
         when(asset.getPath()).thenReturn("/some/folder/asset");
         Tree parentFolder = createAssetWithMetadataProperty("id", "parent", JcrResourceConstants.NT_SLING_ORDERED_FOLDER);

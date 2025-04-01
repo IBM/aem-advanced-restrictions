@@ -18,44 +18,36 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
-import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import static junit.framework.Assert.assertTrue;
-import static junitx.framework.Assert.assertEquals;
 import static junitx.framework.Assert.assertFalse;
 
 /**
- * Tests PropertyMatchHierarchicalPattern.
+ * Tests DateInFutureHierarchicalPattern.
  *
  * @author Roland Gruber
  */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-class PropertyMatchHierarchicalPatternTest {
+class DateInFutureHierarchicalPatternTest {
 
     private static final String PREFIX = "metadata/";
-    private static final String PROP_NAME = "confidential";
-    private static final String PROP_VALUE = "true";
+    private static final String PROP_NAME = "mydate";
+    private static final String PROP_VALUE_BEFORE = "1980-01-01T22:23:00.000+01:00";
+    private static final String PROP_VALUE_AFTER = "2520-01-01T22:23:00.000+01:00";
 
-    private PropertyMatchHierarchicalPattern pattern = null;
-
-    @Mock
-    private PropertyState propertyState;
+    private DateInFuturePattern pattern = null;
 
     @BeforeEach
     void setup() {
-        pattern = new PropertyMatchHierarchicalPattern( PREFIX + PROP_NAME + BasePattern.DELIMITER + PROP_VALUE);
-
-        assertEquals(PREFIX + PROP_NAME, pattern.propertyName);
-        assertEquals(PROP_VALUE, pattern.propertyValue);
+        pattern = new DateInFutureHierarchicalPattern( PREFIX + PROP_NAME);
     }
 
     @Test
@@ -66,25 +58,25 @@ class PropertyMatchHierarchicalPatternTest {
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_AFTER);
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, "invalid");
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_BEFORE);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE, "invalid"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {"invalid1", "invalid2"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_BEFORE});
         assertFalse(pattern.matches(asset, null));
     }
 
@@ -96,25 +88,25 @@ class PropertyMatchHierarchicalPatternTest {
 
     @Test
     void matchesFolder_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, PROP_VALUE);
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, PROP_VALUE_AFTER);
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, "invalid");
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, PROP_VALUE_BEFORE);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {PROP_VALUE, "invalid"});
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {"invalid1", "invalid2"});
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_BEFORE});
         assertFalse(pattern.matches(asset, null));
     }
 
