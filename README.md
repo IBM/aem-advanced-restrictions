@@ -160,15 +160,19 @@ This restriction checks if a given property exists or does not exist under jcr:c
 
 Syntax:
 
-**aarPropertyExists** NAME
+* **aarPropertyExists** NAME
+* **aarPropertyExistsHierarchical** NAME
+* **aarPropertyNotExists** NAME
 
-**aarPropertyNotExists** NAME
-
-Examples:
-
+Examples for asset/page property check:
 ```
 aarPropertyExists confidential
 aarPropertyNotExists metadata/approved
+```
+
+Examples for directory/page incl. subpages property check:
+```
+aarPropertyExistsHierarchical confidential
 ```
 
 ![Property Existence](docs/images/examplePropertyExists.png)

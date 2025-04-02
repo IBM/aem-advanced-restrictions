@@ -19,20 +19,20 @@
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
 /**
- * Restriction pattern to check if property values contain a given value in the hierarchy.
+ * Restriction pattern to check if a property exists in the hierarchy.
  *
  * @author Roland Gruber
  */
-public class PropertyContainsHierarchicalPattern extends PropertyContainsPattern {
+public class PropertyExistsHierarchicalPattern extends PropertyExistsPattern {
 
-    public static final String ID = "aarPropertyContainsHierarchical";
+    public static final String ID = "aarPropertyExistsHierarchical";
 
     /**
      * Constructor
      *
      * @param restrictionValue restriction value (PROPERTY_NAME:PROPERTY_VALUE)
      */
-    public PropertyContainsHierarchicalPattern(final String restrictionValue) {
+    public PropertyExistsHierarchicalPattern(final String restrictionValue) {
         super(restrictionValue);
     }
 

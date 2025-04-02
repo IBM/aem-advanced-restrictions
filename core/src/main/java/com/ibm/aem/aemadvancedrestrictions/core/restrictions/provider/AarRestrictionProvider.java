@@ -65,6 +65,7 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(PropertyContainsHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyContainsHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(PropertyEndsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyEndsWithHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(PropertyStartsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyStartsWithHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyExistsHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyExistsHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -136,6 +137,9 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(PropertyStartsWithHierarchicalPattern.ID)) {
             patterns.add(new PropertyStartsWithHierarchicalPattern(tree.getProperty(PropertyStartsWithHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyExistsHierarchicalPattern.ID)) {
+            patterns.add(new PropertyExistsHierarchicalPattern(tree.getProperty(PropertyExistsHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -211,6 +215,9 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case PropertyStartsWithHierarchicalPattern.ID:
                         patterns.add(new PropertyStartsWithHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyExistsHierarchicalPattern.ID:
+                        patterns.add(new PropertyExistsHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

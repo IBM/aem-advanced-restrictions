@@ -19,7 +19,7 @@
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
 /**
- * Restriction pattern to match property values in the hierarchy.
+ * Restriction pattern to check if property values end with a given value in the hierarchy.
  *
  * @author Roland Gruber
  */
