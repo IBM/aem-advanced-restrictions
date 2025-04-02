@@ -129,18 +129,25 @@ These restrictions are e.g. useful for matching parts of tag values.
 
 Syntax:
 
-**aarPropertyStartsWith** NAME$VALUE
+* **aarPropertyStartsWith** NAME$VALUE
+* **aarPropertyStartsWithHierarchical** NAME$VALUE
+* **aarPropertyEndsWith** NAME$VALUE
+* **aarPropertyEndsWithHierarchical** NAME$VALUE
+* **aarPropertyContains** NAME$VALUE
+* **aarPropertyContainsHierarchical** NAME$VALUE
 
-**aarPropertyEndsWith** NAME$VALUE
-
-**aarPropertyContains** NAME$VALUE
-
-Examples:
-
+Examples for asset/page property check:
 ```
 aarPropertyStartsWith cq:tags$properties:Confidential
 aarPropertyEndsWith metadata/cq:tags$properties:Confidential
 aarPropertyContains metadata/subnode/tags$properties:Confidential
+```
+
+Examples for directory/page incl. subpages property check:
+```
+aarPropertyStartsWithHierarchical cq:tags$properties:Confidential
+aarPropertyEndsWithHierarchical metadata/cq:tags$properties:Confidential
+aarPropertyContainsHierarchical metadata/subnode/tags$properties:Confidential
 ```
 
 ![Property Substring Matching](docs/images/examplePropertyContains.png)

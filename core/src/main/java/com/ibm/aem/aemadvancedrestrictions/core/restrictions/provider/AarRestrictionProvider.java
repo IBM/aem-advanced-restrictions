@@ -62,6 +62,9 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(DateInFutureHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInFutureHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(NumberLessHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberLessHierarchicalPattern.ID, Type.STRING, false));
         definitions.put(NumberGreaterHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberGreaterHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyContainsHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyContainsHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyEndsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyEndsWithHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyStartsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyStartsWithHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -124,6 +127,15 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(NumberGreaterHierarchicalPattern.ID)) {
             patterns.add(new NumberGreaterHierarchicalPattern(tree.getProperty(NumberGreaterHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyContainsHierarchicalPattern.ID)) {
+            patterns.add(new PropertyContainsHierarchicalPattern(tree.getProperty(PropertyContainsHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyEndsWithHierarchicalPattern.ID)) {
+            patterns.add(new PropertyEndsWithHierarchicalPattern(tree.getProperty(PropertyEndsWithHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyStartsWithHierarchicalPattern.ID)) {
+            patterns.add(new PropertyStartsWithHierarchicalPattern(tree.getProperty(PropertyStartsWithHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -190,6 +202,15 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case NumberGreaterHierarchicalPattern.ID:
                         patterns.add(new NumberGreaterHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyContainsHierarchicalPattern.ID:
+                        patterns.add(new PropertyContainsHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyEndsWithHierarchicalPattern.ID:
+                        patterns.add(new PropertyEndsWithHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyStartsWithHierarchicalPattern.ID:
+                        patterns.add(new PropertyStartsWithHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

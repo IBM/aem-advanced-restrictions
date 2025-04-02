@@ -4,7 +4,7 @@
     <rep:policy/>
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        jcr:title="Number greater"
+        jcr:title="Number Greater"
         sourcing="false">
         <folderThumbnail/>
     </jcr:content>
