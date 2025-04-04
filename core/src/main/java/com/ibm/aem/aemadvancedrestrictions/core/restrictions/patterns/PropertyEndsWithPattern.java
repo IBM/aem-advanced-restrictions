@@ -22,7 +22,7 @@ import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Type;
 
 /**
- * Restriction pattern to check if property values ends with a given value.
+ * Restriction pattern to check if property values end with a given value.
  *
  * @author Roland Gruber
  */

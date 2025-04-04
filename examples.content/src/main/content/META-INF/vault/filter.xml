@@ -2,4 +2,5 @@
 <workspaceFilter version="1.0">
     <filter root="/content/dam/aar-examples"/>
     <filter root="/conf/global/settings/dam/adminui-extension/metadataschema/aar"/>
+    <filter root="/conf/global/settings/dam/adminui-extension/foldermetadataschema/aar"/>
 </workspaceFilter>

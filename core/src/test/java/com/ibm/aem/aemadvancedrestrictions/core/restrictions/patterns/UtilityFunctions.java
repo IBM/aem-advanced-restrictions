@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -23,6 +23,7 @@ import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 
 import java.util.Arrays;
 
@@ -36,12 +37,26 @@ import static org.mockito.Mockito.when;
  */
 class UtilityFunctions {
 
-    public static Tree createAssetWithMetadataProperty(String propertyName, Object value) {
+    private static Tree createAssetWithMetadataProperty(String propertyName, Object value) {
+        return createAssetWithMetadataProperty(propertyName, value, DamConstants.NT_DAM_ASSET);
+    }
+
+    public static Tree createAssetWithMetadataPropertyAndRoot(String propertyName, Object value) {
+        Tree asset = createAssetWithMetadataProperty(propertyName, value, DamConstants.NT_DAM_ASSET);
+        when(asset.getPath()).thenReturn("/root/asset");
+        Tree root = createAssetWithMetadataProperty("id", "root", "rep:root");
+        when(asset.getParent()).thenReturn(root);
+        when(root.isRoot()).thenReturn(true);
+        when(root.getPath()).thenReturn("/");
+        return asset;
+    }
+
+    public static Tree createAssetWithMetadataProperty(String propertyName, Object value, String primaryType) {
         Tree asset = mock(Tree.class);
         Tree jcrContent = mock(Tree.class);
-        PropertyState primaryType = mock(PropertyState.class);
-        when(asset.getProperty(JcrConstants.JCR_PRIMARYTYPE)).thenReturn(primaryType);
-        when(primaryType.getValue(Type.STRING)).thenReturn(DamConstants.NT_DAM_ASSET);
+        PropertyState primaryTypeProperty = mock(PropertyState.class);
+        when(asset.getProperty(JcrConstants.JCR_PRIMARYTYPE)).thenReturn(primaryTypeProperty);
+        when(primaryTypeProperty.getValue(Type.STRING)).thenReturn(primaryType);
         when(asset.hasChild(JcrConstants.JCR_CONTENT)).thenReturn(true);
         when(asset.getChild(JcrConstants.JCR_CONTENT)).thenReturn(jcrContent);
         Tree metadata = mock(Tree.class);
@@ -67,6 +82,22 @@ class UtilityFunctions {
         }
         when(jcrContent.hasChild("metadata")).thenReturn(true);
         when(jcrContent.getChild("metadata")).thenReturn(metadata);
+        return asset;
+    }
+
+    public static Tree createAssetWithParentFoldersAndMetadataProperty(String propertyName, Object value) {
+        Tree asset = createAssetWithMetadataProperty("id", "asset");
+        when(asset.getPath()).thenReturn("/some/folder/asset");
+        Tree parentFolder = createAssetWithMetadataProperty("id", "parent", JcrResourceConstants.NT_SLING_ORDERED_FOLDER);
+        when(asset.getParent()).thenReturn(parentFolder);
+        when(parentFolder.getPath()).thenReturn("/some/folder");
+        Tree parentParentFolder = createAssetWithMetadataProperty(propertyName, value, JcrResourceConstants.NT_SLING_FOLDER);
+        when(parentFolder.getParent()).thenReturn(parentParentFolder);
+        when(parentParentFolder.getPath()).thenReturn("/some");
+        Tree root = createAssetWithMetadataProperty("id", "root", "rep:root");
+        when(parentParentFolder.getParent()).thenReturn(root);
+        when(root.isRoot()).thenReturn(true);
+        when(root.getPath()).thenReturn("/");
         return asset;
     }
 

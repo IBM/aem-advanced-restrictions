@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -57,6 +57,15 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         definitions.put(NodeExistsPattern.ID, new RestrictionDefinitionImpl(NodeExistsPattern.ID, Type.STRING, false));
         definitions.put(NodeNotExistsPattern.ID, new RestrictionDefinitionImpl(NodeNotExistsPattern.ID, Type.STRING, false));
         definitions.put(PathContainsFolderPattern.ID, new RestrictionDefinitionImpl(PathContainsFolderPattern.ID, Type.STRING, false));
+        definitions.put(PropertyMatchHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyMatchHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(DateInPastHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInPastHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(DateInFutureHierarchicalPattern.ID, new RestrictionDefinitionImpl(DateInFutureHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(NumberLessHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberLessHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(NumberGreaterHierarchicalPattern.ID, new RestrictionDefinitionImpl(NumberGreaterHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyContainsHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyContainsHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyEndsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyEndsWithHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyStartsWithHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyStartsWithHierarchicalPattern.ID, Type.STRING, false));
+        definitions.put(PropertyExistsHierarchicalPattern.ID, new RestrictionDefinitionImpl(PropertyExistsHierarchicalPattern.ID, Type.STRING, false));
         return definitions;
     }
 
@@ -104,6 +113,33 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         }
         else if (tree.hasProperty(PathContainsFolderPattern.ID)) {
             patterns.add(new PathContainsFolderPattern(tree.getProperty(PathContainsFolderPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyMatchHierarchicalPattern.ID)) {
+            patterns.add(new PropertyMatchHierarchicalPattern(tree.getProperty(PropertyMatchHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(DateInPastHierarchicalPattern.ID)) {
+            patterns.add(new DateInPastHierarchicalPattern(tree.getProperty(DateInPastHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(DateInFutureHierarchicalPattern.ID)) {
+            patterns.add(new DateInFutureHierarchicalPattern(tree.getProperty(DateInFutureHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(NumberLessHierarchicalPattern.ID)) {
+            patterns.add(new NumberLessHierarchicalPattern(tree.getProperty(NumberLessHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(NumberGreaterHierarchicalPattern.ID)) {
+            patterns.add(new NumberGreaterHierarchicalPattern(tree.getProperty(NumberGreaterHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyContainsHierarchicalPattern.ID)) {
+            patterns.add(new PropertyContainsHierarchicalPattern(tree.getProperty(PropertyContainsHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyEndsWithHierarchicalPattern.ID)) {
+            patterns.add(new PropertyEndsWithHierarchicalPattern(tree.getProperty(PropertyEndsWithHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyStartsWithHierarchicalPattern.ID)) {
+            patterns.add(new PropertyStartsWithHierarchicalPattern(tree.getProperty(PropertyStartsWithHierarchicalPattern.ID).getValue(Type.STRING)));
+        }
+        else if (tree.hasProperty(PropertyExistsHierarchicalPattern.ID)) {
+            patterns.add(new PropertyExistsHierarchicalPattern(tree.getProperty(PropertyExistsHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);
     }
@@ -155,6 +191,33 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
                         break;
                     case PathContainsFolderPattern.ID:
                         patterns.add(new PathContainsFolderPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyMatchHierarchicalPattern.ID:
+                        patterns.add(new PropertyMatchHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case DateInPastHierarchicalPattern.ID:
+                        patterns.add(new DateInPastHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case DateInFutureHierarchicalPattern.ID:
+                        patterns.add(new DateInFutureHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case NumberLessHierarchicalPattern.ID:
+                        patterns.add(new NumberLessHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case NumberGreaterHierarchicalPattern.ID:
+                        patterns.add(new NumberGreaterHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyContainsHierarchicalPattern.ID:
+                        patterns.add(new PropertyContainsHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyEndsWithHierarchicalPattern.ID:
+                        patterns.add(new PropertyEndsWithHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyStartsWithHierarchicalPattern.ID:
+                        patterns.add(new PropertyStartsWithHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
+                        break;
+                    case PropertyExistsHierarchicalPattern.ID:
+                        patterns.add(new PropertyExistsHierarchicalPattern(restriction.getProperty().getValue(Type.STRING)));
                         break;
                 }
             }

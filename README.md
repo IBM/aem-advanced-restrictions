@@ -63,6 +63,12 @@ To embed the package in your "all" package please use the following dependency.
 All restrictions are evaluated relative to the jcr:content node. Assets (dam:Asset) and pages (cq:Page) are supported. Nodes with other jcr:primaryType are not supported and ignored.
 See below for all supported restrictions.
 
+There exist hierarchical and non-hierarchical versions of the property restrictions.
+This is caused by a speciality of OAK that allows access to child nodes even
+if the parent node is forbidden. For property checks on assets and leaf pages you
+can use the non-hierarchical versions. If the checked properties are on folders or
+parent pages then use the hierarchical version.
+
 Properties on subnodes of jcr:content:
 
 The property names can include slashes to specify subnodes. This is very useful for assets where most
@@ -91,9 +97,11 @@ This restriction checks if a given property value matches the restriction value.
 The comparison is done by reading the String value. Non-string properties are compared using their String representation.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarPropertyMatches** NAME$VALUE
+Syntax:
+* **aarPropertyMatches** NAME$VALUE
+* **aarPropertyMatchesHierarchical** NAME$VALUE
 
-Examples:
+Examples for asset/page property check:
 
 ```
 aarPropertyMatches confidential$true
@@ -101,6 +109,12 @@ aarPropertyMatches metadata/confidential$true
 ```
 ![Property Equality Matching](docs/images/examplePropertyMatch.png)
 
+Examples for directory/page incl. subpages property check:
+
+```
+aarPropertyMatchesHierarchical confidential$true
+aarPropertyMatchesHierarchical metadata/confidential$true
+```
 
 <a name="aarPropertyStartsWith"></a>
 
@@ -115,18 +129,25 @@ These restrictions are e.g. useful for matching parts of tag values.
 
 Syntax:
 
-**aarPropertyStartsWith** NAME$VALUE
+* **aarPropertyStartsWith** NAME$VALUE
+* **aarPropertyStartsWithHierarchical** NAME$VALUE
+* **aarPropertyEndsWith** NAME$VALUE
+* **aarPropertyEndsWithHierarchical** NAME$VALUE
+* **aarPropertyContains** NAME$VALUE
+* **aarPropertyContainsHierarchical** NAME$VALUE
 
-**aarPropertyEndsWith** NAME$VALUE
-
-**aarPropertyContains** NAME$VALUE
-
-Examples:
-
+Examples for asset/page property check:
 ```
 aarPropertyStartsWith cq:tags$properties:Confidential
 aarPropertyEndsWith metadata/cq:tags$properties:Confidential
 aarPropertyContains metadata/subnode/tags$properties:Confidential
+```
+
+Examples for directory/page incl. subpages property check:
+```
+aarPropertyStartsWithHierarchical cq:tags$properties:Confidential
+aarPropertyEndsWithHierarchical metadata/cq:tags$properties:Confidential
+aarPropertyContainsHierarchical metadata/subnode/tags$properties:Confidential
 ```
 
 ![Property Substring Matching](docs/images/examplePropertyContains.png)
@@ -139,15 +160,19 @@ This restriction checks if a given property exists or does not exist under jcr:c
 
 Syntax:
 
-**aarPropertyExists** NAME
+* **aarPropertyExists** NAME
+* **aarPropertyExistsHierarchical** NAME
+* **aarPropertyNotExists** NAME
 
-**aarPropertyNotExists** NAME
-
-Examples:
-
+Examples for asset/page property check:
 ```
 aarPropertyExists confidential
 aarPropertyNotExists metadata/approved
+```
+
+Examples for directory/page incl. subpages property check:
+```
+aarPropertyExistsHierarchical confidential
 ```
 
 ![Property Existence](docs/images/examplePropertyExists.png)
@@ -165,12 +190,21 @@ These restrictions should only be used for numeric values of type "Long".
 Checks if the property value is less than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberLess** NAME$VALUE
+Syntax:
 
-Example:
+* **aarNumberLess** NAME$VALUE
+* **aarNumberLessHierarchical** NAME$VALUE
+
+Examples for asset/page property check:
 ```
 aarNumberLess counter$5
 aarNumberLess metadata/counter$5
+```
+Examples for directory/page incl. subpages property check:
+
+```
+aarNumberLessHierarchical counter$5
+aarNumberLessHierarchical metadata/counter$5
 ```
 
 This matches if the property is less than 5.
@@ -180,12 +214,20 @@ This matches if the property is less than 5.
 Checks if the property value is greater than the restriction value.
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarNumberGreater** NAME$VALUE
+Syntax:
+* **aarNumberGreater** NAME$VALUE
+* **aarNumberGreaterHierarchical** NAME$VALUE
 
-Example:
+Examples for asset/page property check:
 ```
 aarNumberGreater counter$5
 aarNumberGreater metadata/counter$5
+```
+Examples for directory/page incl. subpages property check:
+
+```
+aarNumberGreaterHierarchical counter$5
+aarNumberGreaterHierarchical metadata/counter$5
 ```
 
 This matches if the property is greater than 5.
@@ -203,9 +245,11 @@ These restrictions should only be used for date values.
 Checks if the property value is in the future (compared to now).
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarDateInFuture** NAME
+Syntax:
+* **aarDateInFuture** NAME
+* **aarDateInFutureHierarchical** NAME
 
-Example:
+Examples for asset/page property check:
 
 Use "releaseDate" to store the date when content gets public.
 Then add a deny rule for read access for normal editors.
@@ -216,14 +260,23 @@ aarDateInFuture releaseDate
 aarDateInFuture metadata/releaseDate
 ```
 
+Examples for directory/page incl. subpages property check:
+
+```
+aarDateInFutureHierarchical releaseDate
+aarDateInFutureHierarchical metadata/releaseDate
+```
+
 #### Past
 
 Checks if the property value is in the past (compared to now).
 If the property is not present then the ACL will not apply.
 
-Syntax: **aarDateInPast** NAME
+Syntax:
+* **aarDateInPast** NAME
+* **aarDateInPastHierarchical** NAME
 
-Example:
+Examples for asset/page property check:
 
 Use "releaseDate" to store the date when content gets outdated and should be hidden.
 Then add a deny rule for read access for normal editors.
@@ -232,6 +285,13 @@ Privileged editors can have an additional allow rule to gain access (this rule m
 ```
 aarDateInPast releaseDate
 aarDateInPast metadata/releaseDate
+```
+
+Examples for directory/page incl. subpages property check:
+
+```
+aarDateInPastHierarchical releaseDate
+aarDateInPastHierarchical metadata/releaseDate
 ```
 
 <a name="aarNodeExists"></a>

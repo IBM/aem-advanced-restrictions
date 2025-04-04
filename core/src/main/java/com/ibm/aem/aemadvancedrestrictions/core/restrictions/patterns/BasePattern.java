@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -25,6 +25,7 @@ import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,13 +50,22 @@ public abstract class BasePattern implements RestrictionPattern {
             return false;
         }
         PropertyState valueState = readPropertyFromBase(baseNode, getPropertyName());
-        if (valueState == null) {
-            return false;
+        if (valueState != null) {
+            if (!valueState.isArray()) {
+                if (singleValuePropertyMatches(valueState)) {
+                    return true;
+                }
+            }
+            else {
+                if (multiValuePropertyMatches(valueState)) {
+                    return true;
+                }
+            }
         }
-        if (!valueState.isArray()) {
-            return singleValuePropertyMatches(valueState);
+        if (checkHierarchy()) {
+            return matches(tree.getParent(), propertyState);
         }
-        return multiValuePropertyMatches(valueState);
+        return false;
     }
 
     /**
@@ -96,7 +106,7 @@ public abstract class BasePattern implements RestrictionPattern {
      * @return base tree
      */
     protected Tree findBaseNode(Tree tree) {
-        if (isPageOrAsset(tree)) {
+        if (isValidBaseNode(tree)) {
             return tree;
         }
         if (!tree.getPath().contains(JcrConstants.JCR_CONTENT)) {
@@ -105,7 +115,7 @@ public abstract class BasePattern implements RestrictionPattern {
         Tree currentNode = tree;
         while (!currentNode.isRoot()) {
             currentNode = currentNode.getParent();
-            if (isPageOrAsset(currentNode)) {
+            if (isValidBaseNode(currentNode)) {
                 return currentNode;
             }
         }
@@ -113,18 +123,21 @@ public abstract class BasePattern implements RestrictionPattern {
     }
 
     /**
-     * Returns if the tree belongs to a page or an asset.
+     * Returns if the tree belongs to a page, asset or Sling folder.
      *
      * @param tree node tree
      * @return is page or asset
      */
-    protected boolean isPageOrAsset(Tree tree) {
-        boolean isPageOrAsset = false;
+    protected boolean isValidBaseNode(Tree tree) {
+        boolean isValid = false;
         if (tree != null && tree.getProperty(JcrConstants.JCR_PRIMARYTYPE) != null) {
-            isPageOrAsset = DamConstants.NT_DAM_ASSET.equals(tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING))
-                    || NameConstants.NT_PAGE.equals(tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING));
+            String primaryType = tree.getProperty(JcrConstants.JCR_PRIMARYTYPE).getValue(Type.STRING);
+            isValid = DamConstants.NT_DAM_ASSET.equals(primaryType)
+                      || NameConstants.NT_PAGE.equals(primaryType)
+                      || JcrResourceConstants.NT_SLING_FOLDER.equals(primaryType)
+                      || JcrResourceConstants.NT_SLING_ORDERED_FOLDER.equals(primaryType);
         }
-        return isPageOrAsset;
+        return isValid;
     }
 
     /**
@@ -149,6 +162,15 @@ public abstract class BasePattern implements RestrictionPattern {
             node = node.getChild(child);
         }
         return node.getProperty(parts.get(0));
+    }
+
+    /**
+     * Checks also parent nodes and not only base.
+     *
+     * @return check hierarchy
+     */
+    protected boolean checkHierarchy() {
+        return false;
     }
 
     @Override

@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -52,7 +52,7 @@ class PropertyNotExistsPatternTest {
 
     @BeforeEach
     void setup() {
-        asset = UtilityFunctions.createAssetWithMetadataProperty(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(CONFIDENTIAL, "val");
     }
 
     @Test

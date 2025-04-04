@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:lastModified="{Date}2025-03-28T10:13:47.948+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Private1"
+        folderMetadataSchema="/conf/global/settings/dam/adminui-extension/foldermetadataschema/aar"
+        sourcing="false">
+        <folderThumbnail/>
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            releaseDate="{Date}2005-01-01T09:08:07.111+01:00"/>
+    </jcr:content>
+    <private1.png/>
+</jcr:root>

@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 IBM iX
+ * Copyright 2024 - 2025 IBM iX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -56,31 +56,31 @@ class PropertyStartsWithPatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, CHECK_VALUE + "/test");
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, CHECK_VALUE + "/test");
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, "invalid/" + CHECK_VALUE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, "invalid/" + CHECK_VALUE);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, new String[] {CHECK_VALUE + "/test", "invalid"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {CHECK_VALUE + "/test", "invalid"});
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataProperty(PROP_NAME, new String[] {"invalid1", "invalid/" + CHECK_VALUE});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {"invalid1", "invalid/" + CHECK_VALUE});
         assertFalse(pattern.matches(asset, null));
     }
 
