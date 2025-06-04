@@ -26,13 +26,13 @@ Follow these steps to get authorized to perform a release.
 * `gpgconf --kill gpg-agent`
 * Request publish rights for Maven Central at "com.ibm.aem" (https://central.sonatype.org/register/central-portal/).
  The request needs to be approved by someone who already has this right.
-* Follow https://central.sonatype.org/publish/generate-token/ to get your user token and add it to your .m2/settings.xml file:
+* Follow https://central.sonatype.org/publish/generate-portal-token/ to get your user token and add it to your .m2/settings.xml file:
 
 ```
 <settings>
   <servers>
     <server>
-      <id>ossrh</id>
+      <id>central</id>
       <username>token-id</username>
       <password>token-value</password>
     </server>
