@@ -166,7 +166,7 @@
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.models.impl</artifactId>
-            <version>1.4.4</version>
+            <version>1.7.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
