@@ -350,7 +350,7 @@
             <dependency>
               <groupId>biz.netcentric.aem</groupId>
               <artifactId>aem-nodetypes</artifactId>
-              <version>6.5.7.0</version>
+              <version>2023.10.0</version>
             </dependency>
           </dependencies>
         </plugin>
