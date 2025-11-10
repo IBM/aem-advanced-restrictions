@@ -1,4 +1,7 @@
 # Release History
+* 2.0.1
+  * Dependency updates
+
 * 2.0.0
   * Allow property checks on Sling (ordered) folders
   * Support hierarchical property checks on parent items
