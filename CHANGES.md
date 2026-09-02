@@ -1,4 +1,7 @@
 # Release History
+* 2.1.0
+  * Requires AEM 6.5 LTS SP 3 or Cloud
+
 * 2.0.1
   * Dependency updates
 
