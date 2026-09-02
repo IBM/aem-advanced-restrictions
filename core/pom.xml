@@ -170,9 +170,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <scope>test</scope>
+            <artifactId>oak-commons</artifactId>
+            <groupId>org.apache.jackrabbit</groupId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
