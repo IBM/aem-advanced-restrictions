@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,7 +52,7 @@ class PropertyExistsHierarchicalPatternTest {
 
     @BeforeEach
     void setup() {
-        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(CONFIDENTIAL, "val"));
     }
 
     @Test
@@ -76,7 +78,7 @@ class PropertyExistsHierarchicalPatternTest {
 
     @Test
     void matchesFolder_notPresent() {
-        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(CONFIDENTIAL, "val"));
         pattern = new PropertyExistsHierarchicalPattern("invalid");
 
         assertFalse(pattern.matches(asset, null));
@@ -84,7 +86,7 @@ class PropertyExistsHierarchicalPatternTest {
 
     @Test
     void matchesFolder_notPresent_level2() {
-        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(CONFIDENTIAL, "val"));
         pattern = new PropertyExistsHierarchicalPattern(METADATA + "/" + "invalid");
 
         assertFalse(pattern.matches(asset, null));
@@ -92,7 +94,7 @@ class PropertyExistsHierarchicalPatternTest {
 
     @Test
     void matchesFolder_present() {
-        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(CONFIDENTIAL, "val"));
         pattern = new PropertyExistsHierarchicalPattern(PROP_NAME);
 
         assertTrue(pattern.matches(asset, null));

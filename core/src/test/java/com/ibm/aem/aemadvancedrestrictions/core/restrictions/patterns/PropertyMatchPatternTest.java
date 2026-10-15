@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,31 +62,31 @@ class PropertyMatchPatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, PROP_VALUE));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, "invalid");
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, "invalid"));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE, "invalid"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {PROP_VALUE, "invalid"}));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {"invalid1", "invalid2"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {"invalid1", "invalid2"}));
         assertFalse(pattern.matches(asset, null));
     }
 

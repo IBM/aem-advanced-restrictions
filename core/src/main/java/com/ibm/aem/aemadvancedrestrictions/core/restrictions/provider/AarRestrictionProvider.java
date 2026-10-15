@@ -78,67 +78,67 @@ public class AarRestrictionProvider extends AbstractRestrictionProvider {
         if (tree.hasProperty(PropertyMatchPattern.ID)) {
             patterns.add(new PropertyMatchPattern(tree.getProperty(PropertyMatchPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyStartsWithPattern.ID)) {
+        if (tree.hasProperty(PropertyStartsWithPattern.ID)) {
             patterns.add(new PropertyStartsWithPattern(tree.getProperty(PropertyStartsWithPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyEndsWithPattern.ID)) {
+        if (tree.hasProperty(PropertyEndsWithPattern.ID)) {
             patterns.add(new PropertyEndsWithPattern(tree.getProperty(PropertyEndsWithPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyContainsPattern.ID)) {
+        if (tree.hasProperty(PropertyContainsPattern.ID)) {
             patterns.add(new PropertyContainsPattern(tree.getProperty(PropertyContainsPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyExistsPattern.ID)) {
+        if (tree.hasProperty(PropertyExistsPattern.ID)) {
             patterns.add(new PropertyExistsPattern(tree.getProperty(PropertyExistsPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyNotExistsPattern.ID)) {
+        if (tree.hasProperty(PropertyNotExistsPattern.ID)) {
             patterns.add(new PropertyNotExistsPattern(tree.getProperty(PropertyNotExistsPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(DateInPastPattern.ID)) {
+        if (tree.hasProperty(DateInPastPattern.ID)) {
             patterns.add(new DateInPastPattern(tree.getProperty(DateInPastPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(DateInFuturePattern.ID)) {
+        if (tree.hasProperty(DateInFuturePattern.ID)) {
             patterns.add(new DateInFuturePattern(tree.getProperty(DateInFuturePattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NumberLessPattern.ID)) {
+        if (tree.hasProperty(NumberLessPattern.ID)) {
             patterns.add(new NumberLessPattern(tree.getProperty(NumberLessPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NumberGreaterPattern.ID)) {
+        if (tree.hasProperty(NumberGreaterPattern.ID)) {
             patterns.add(new NumberGreaterPattern(tree.getProperty(NumberGreaterPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NodeExistsPattern.ID)) {
+        if (tree.hasProperty(NodeExistsPattern.ID)) {
             patterns.add(new NodeExistsPattern(tree.getProperty(NodeExistsPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NodeNotExistsPattern.ID)) {
+        if (tree.hasProperty(NodeNotExistsPattern.ID)) {
             patterns.add(new NodeNotExistsPattern(tree.getProperty(NodeNotExistsPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PathContainsFolderPattern.ID)) {
+        if (tree.hasProperty(PathContainsFolderPattern.ID)) {
             patterns.add(new PathContainsFolderPattern(tree.getProperty(PathContainsFolderPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyMatchHierarchicalPattern.ID)) {
+        if (tree.hasProperty(PropertyMatchHierarchicalPattern.ID)) {
             patterns.add(new PropertyMatchHierarchicalPattern(tree.getProperty(PropertyMatchHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(DateInPastHierarchicalPattern.ID)) {
+        if (tree.hasProperty(DateInPastHierarchicalPattern.ID)) {
             patterns.add(new DateInPastHierarchicalPattern(tree.getProperty(DateInPastHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(DateInFutureHierarchicalPattern.ID)) {
+        if (tree.hasProperty(DateInFutureHierarchicalPattern.ID)) {
             patterns.add(new DateInFutureHierarchicalPattern(tree.getProperty(DateInFutureHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NumberLessHierarchicalPattern.ID)) {
+        if (tree.hasProperty(NumberLessHierarchicalPattern.ID)) {
             patterns.add(new NumberLessHierarchicalPattern(tree.getProperty(NumberLessHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(NumberGreaterHierarchicalPattern.ID)) {
+        if (tree.hasProperty(NumberGreaterHierarchicalPattern.ID)) {
             patterns.add(new NumberGreaterHierarchicalPattern(tree.getProperty(NumberGreaterHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyContainsHierarchicalPattern.ID)) {
+        if (tree.hasProperty(PropertyContainsHierarchicalPattern.ID)) {
             patterns.add(new PropertyContainsHierarchicalPattern(tree.getProperty(PropertyContainsHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyEndsWithHierarchicalPattern.ID)) {
+        if (tree.hasProperty(PropertyEndsWithHierarchicalPattern.ID)) {
             patterns.add(new PropertyEndsWithHierarchicalPattern(tree.getProperty(PropertyEndsWithHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyStartsWithHierarchicalPattern.ID)) {
+        if (tree.hasProperty(PropertyStartsWithHierarchicalPattern.ID)) {
             patterns.add(new PropertyStartsWithHierarchicalPattern(tree.getProperty(PropertyStartsWithHierarchicalPattern.ID).getValue(Type.STRING)));
         }
-        else if (tree.hasProperty(PropertyExistsHierarchicalPattern.ID)) {
+        if (tree.hasProperty(PropertyExistsHierarchicalPattern.ID)) {
             patterns.add(new PropertyExistsHierarchicalPattern(tree.getProperty(PropertyExistsHierarchicalPattern.ID).getValue(Type.STRING)));
         }
         return CompositePattern.create(patterns);

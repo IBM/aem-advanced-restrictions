@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
@@ -55,7 +57,7 @@ class NodeNotExistsPatternTest {
 
     @BeforeEach
     void setup() {
-        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot("prop", "val");
+        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of("prop", "val"));
     }
 
     @Test

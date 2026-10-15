@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,7 +54,7 @@ class PropertyNotExistsPatternTest {
 
     @BeforeEach
     void setup() {
-        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(CONFIDENTIAL, "val");
+        asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(CONFIDENTIAL, "val"));
     }
 
     @Test

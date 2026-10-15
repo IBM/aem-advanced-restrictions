@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,31 +58,31 @@ class PropertyStartsWithPatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, CHECK_VALUE + "/test");
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, CHECK_VALUE + "/test"));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, "invalid/" + CHECK_VALUE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, "invalid/" + CHECK_VALUE));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {CHECK_VALUE + "/test", "invalid"});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {CHECK_VALUE + "/test", "invalid"}));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {"invalid1", "invalid/" + CHECK_VALUE});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {"invalid1", "invalid/" + CHECK_VALUE}));
         assertFalse(pattern.matches(asset, null));
     }
 

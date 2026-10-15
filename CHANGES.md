@@ -1,4 +1,7 @@
 # Release History
+* 2.1.1
+  * Fixed issue when multiple restrictions are defined in the same ACL entry
+
 * 2.1.0
   * Requires AEM 6.5 LTS SP 3 or Cloud
 

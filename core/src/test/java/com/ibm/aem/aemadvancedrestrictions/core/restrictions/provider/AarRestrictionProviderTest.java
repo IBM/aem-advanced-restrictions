@@ -21,9 +21,12 @@ package com.ibm.aem.aemadvancedrestrictions.core.restrictions.provider;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.BasePattern;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.NodeExistsPattern;
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.PropertyEndsWithPattern;
+import com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns.PropertyStartsWithPattern;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
+import org.apache.jackrabbit.oak.spi.security.authorization.restriction.CompositePattern;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.Restriction;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionDefinition;
 import org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionPattern;
@@ -102,6 +105,21 @@ class AarRestrictionProviderTest {
         restrictions.add(restriction);
 
         assertTrue(provider.getPattern("/content", restrictions) instanceof NodeExistsPattern);
+    }
+
+    @Test
+    void getPattern_multiplePatterns() {
+        when(tree.hasProperty(PropertyEndsWithPattern.ID)).thenReturn(true);
+        when(tree.hasProperty(PropertyStartsWithPattern.ID)).thenReturn(true);
+        PropertyState propertyStateEnds = mock(PropertyState.class);
+        when(propertyStateEnds.getValue(Type.STRING)).thenReturn("prop" + BasePattern.DELIMITER + "end");
+        when(tree.getProperty(PropertyEndsWithPattern.ID)).thenReturn(propertyStateEnds);
+        PropertyState propertyStateStarts = mock(PropertyState.class);
+        when(propertyStateStarts.getValue(Type.STRING)).thenReturn("prop2" + BasePattern.DELIMITER + "start");
+        when(tree.getProperty(PropertyStartsWithPattern.ID)).thenReturn(propertyStateStarts);
+
+        RestrictionPattern pattern = provider.getPattern("/content", tree);
+        assertTrue(pattern instanceof CompositePattern);
     }
 
 }

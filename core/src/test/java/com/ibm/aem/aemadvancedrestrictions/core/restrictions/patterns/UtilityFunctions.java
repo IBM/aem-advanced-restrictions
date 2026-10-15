@@ -18,14 +18,16 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
-import com.day.cq.dam.api.DamConstants;
+import java.util.Arrays;
+import java.util.Map;
+
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.apache.jackrabbit.oak.api.Type;
 import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 
-import java.util.Arrays;
+import com.day.cq.dam.api.DamConstants;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -37,21 +39,21 @@ import static org.mockito.Mockito.when;
  */
 class UtilityFunctions {
 
-    private static Tree createAssetWithMetadataProperty(String propertyName, Object value) {
-        return createAssetWithMetadataProperty(propertyName, value, DamConstants.NT_DAM_ASSET);
+    private static Tree createAssetWithMetadataProperty(Map<String, Object> properties) {
+        return createAssetWithMetadataProperty(properties, DamConstants.NT_DAM_ASSET);
     }
 
-    public static Tree createAssetWithMetadataPropertyAndRoot(String propertyName, Object value) {
-        Tree asset = createAssetWithMetadataProperty(propertyName, value, DamConstants.NT_DAM_ASSET);
+    public static Tree createAssetWithMetadataPropertyAndRoot(Map<String, Object> properties) {
+        Tree asset = createAssetWithMetadataProperty(properties, DamConstants.NT_DAM_ASSET);
         when(asset.getPath()).thenReturn("/root/asset");
-        Tree root = createAssetWithMetadataProperty("id", "root", "rep:root");
+        Tree root = createAssetWithMetadataProperty(Map.of("id", "root"), "rep:root");
         when(asset.getParent()).thenReturn(root);
         when(root.isRoot()).thenReturn(true);
         when(root.getPath()).thenReturn("/");
         return asset;
     }
 
-    public static Tree createAssetWithMetadataProperty(String propertyName, Object value, String primaryType) {
+    public static Tree createAssetWithMetadataProperty(Map<String, Object> properties, String primaryType) {
         Tree asset = mock(Tree.class);
         Tree jcrContent = mock(Tree.class);
         PropertyState primaryTypeProperty = mock(PropertyState.class);
@@ -60,24 +62,28 @@ class UtilityFunctions {
         when(asset.hasChild(JcrConstants.JCR_CONTENT)).thenReturn(true);
         when(asset.getChild(JcrConstants.JCR_CONTENT)).thenReturn(jcrContent);
         Tree metadata = mock(Tree.class);
-        if (value != null) {
-            PropertyState property = mock(PropertyState.class);
-            when(metadata.getProperty(propertyName)).thenReturn(property);
-            if (value instanceof String) {
-                when(property.getValue(Type.STRING)).thenReturn((String) value);
-                when(property.getValue(Type.DATE)).thenReturn((String) value);
-            }
-            if (value instanceof String[]) {
-                when(property.getValue(Type.STRINGS)).thenReturn(Arrays.asList((String[]) value));
-                when(property.getValue(Type.DATES)).thenReturn(Arrays.asList((String[]) value));
-                when(property.isArray()).thenReturn(true);
-            }
-            else if (value instanceof Long) {
-                when(property.getValue(Type.LONG)).thenReturn((Long) value);
-            }
-            if (value instanceof Long[]) {
-                when(property.getValue(Type.LONGS)).thenReturn(Arrays.asList((Long[]) value));
-                when(property.isArray()).thenReturn(true);
+        if (properties != null) {
+            for (Map.Entry<String, Object> currentProperty: properties.entrySet()) {
+                String propertyName = currentProperty.getKey();
+                Object value = currentProperty.getValue();
+                PropertyState property = mock(PropertyState.class);
+                when(metadata.getProperty(propertyName)).thenReturn(property);
+                if (value instanceof String) {
+                    when(property.getValue(Type.STRING)).thenReturn((String) value);
+                    when(property.getValue(Type.DATE)).thenReturn((String) value);
+                }
+                if (value instanceof String[]) {
+                    when(property.getValue(Type.STRINGS)).thenReturn(Arrays.asList((String[]) value));
+                    when(property.getValue(Type.DATES)).thenReturn(Arrays.asList((String[]) value));
+                    when(property.isArray()).thenReturn(true);
+                }
+                else if (value instanceof Long) {
+                    when(property.getValue(Type.LONG)).thenReturn((Long) value);
+                }
+                if (value instanceof Long[]) {
+                    when(property.getValue(Type.LONGS)).thenReturn(Arrays.asList((Long[]) value));
+                    when(property.isArray()).thenReturn(true);
+                }
             }
         }
         when(jcrContent.hasChild("metadata")).thenReturn(true);
@@ -85,16 +91,16 @@ class UtilityFunctions {
         return asset;
     }
 
-    public static Tree createAssetWithParentFoldersAndMetadataProperty(String propertyName, Object value) {
-        Tree asset = createAssetWithMetadataProperty("id", "asset");
+    public static Tree createAssetWithParentFoldersAndMetadataProperty(Map<String, Object> properties) {
+        Tree asset = createAssetWithMetadataProperty(Map.of("id", "asset"));
         when(asset.getPath()).thenReturn("/some/folder/asset");
-        Tree parentFolder = createAssetWithMetadataProperty("id", "parent", JcrResourceConstants.NT_SLING_ORDERED_FOLDER);
+        Tree parentFolder = createAssetWithMetadataProperty(Map.of("id", "parent"), JcrResourceConstants.NT_SLING_ORDERED_FOLDER);
         when(asset.getParent()).thenReturn(parentFolder);
         when(parentFolder.getPath()).thenReturn("/some/folder");
-        Tree parentParentFolder = createAssetWithMetadataProperty(propertyName, value, JcrResourceConstants.NT_SLING_FOLDER);
+        Tree parentParentFolder = createAssetWithMetadataProperty(properties, JcrResourceConstants.NT_SLING_FOLDER);
         when(parentFolder.getParent()).thenReturn(parentParentFolder);
         when(parentParentFolder.getPath()).thenReturn("/some");
-        Tree root = createAssetWithMetadataProperty("id", "root", "rep:root");
+        Tree root = createAssetWithMetadataProperty(Map.of("id", "root"), "rep:root");
         when(parentParentFolder.getParent()).thenReturn(root);
         when(root.isRoot()).thenReturn(true);
         when(root.getPath()).thenReturn("/");
@@ -102,7 +108,7 @@ class UtilityFunctions {
     }
 
     public static Tree createEmptyAssetWithParentFolder(String assetName, String parentName, String parentPrimaryType) {
-        Tree asset = createAssetWithMetadataProperty("key", "value");
+        Tree asset = createAssetWithMetadataProperty(Map.of("key", "value"));
         when(asset.getPath()).thenReturn("/prefix/" + parentName + "/" + assetName);
         when(asset.getName()).thenReturn(assetName);
         PropertyState primaryTypeAsset = mock(PropertyState.class);

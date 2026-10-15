@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.PropertyState;
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,31 +62,31 @@ class NumberLessPatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, 0L);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, 0L));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, 2L);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, 2L));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new Long[] {0L, 2L});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new Long[] {0L, 2L}));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new Long[] {2L, 3L});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new Long[] {2L, 3L}));
         assertFalse(pattern.matches(asset, null));
     }
 

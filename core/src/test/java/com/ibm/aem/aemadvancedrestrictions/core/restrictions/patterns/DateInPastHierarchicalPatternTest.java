@@ -18,6 +18,8 @@
  */
 package com.ibm.aem.aemadvancedrestrictions.core.restrictions.patterns;
 
+import java.util.Map;
+
 import org.apache.jackrabbit.oak.api.Tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,61 +54,61 @@ class DateInPastHierarchicalPatternTest {
 
     @Test
     void matches_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_BEFORE);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, PROP_VALUE_BEFORE));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, PROP_VALUE_AFTER);
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, PROP_VALUE_AFTER));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER}));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matches_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(PROP_NAME, new String[] {PROP_VALUE_AFTER});
+        Tree asset = UtilityFunctions.createAssetWithMetadataPropertyAndRoot(Map.of(PROP_NAME, new String[] {PROP_VALUE_AFTER}));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_noPropertyPresent() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, null);
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(null);
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_propertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, PROP_VALUE_BEFORE);
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(PROP_NAME, PROP_VALUE_BEFORE));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_propertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, PROP_VALUE_AFTER);
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(PROP_NAME, PROP_VALUE_AFTER));
         assertFalse(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_multiPropertyMatches() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER});
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(PROP_NAME, new String[] {PROP_VALUE_BEFORE, PROP_VALUE_AFTER}));
         assertTrue(pattern.matches(asset, null));
     }
 
     @Test
     void matchesFolder_multiPropertyMatchesNot() {
-        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(PROP_NAME, new String[] {PROP_VALUE_AFTER});
+        Tree asset = UtilityFunctions.createAssetWithParentFoldersAndMetadataProperty(Map.of(PROP_NAME, new String[] {PROP_VALUE_AFTER}));
         assertFalse(pattern.matches(asset, null));
     }
 

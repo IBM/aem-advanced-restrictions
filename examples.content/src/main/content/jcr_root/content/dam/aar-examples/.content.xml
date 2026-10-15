@@ -27,4 +27,5 @@
     <node-not-exists-examples/>
     <path-contains-folder-examples/>
     <folder-properties-examples/>
+    <composite-examples/>
 </jcr:root>
