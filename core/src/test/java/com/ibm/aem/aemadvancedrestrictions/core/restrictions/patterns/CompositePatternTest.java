@@ -36,9 +36,9 @@ import org.mockito.quality.Strictness;
 
 import com.ibm.aem.aemadvancedrestrictions.core.restrictions.provider.AarRestrictionProvider;
 
-import static junit.framework.Assert.assertTrue;
-import static junitx.framework.Assert.assertEquals;
-import static junitx.framework.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
